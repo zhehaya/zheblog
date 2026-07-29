@@ -546,7 +546,8 @@ hide:
     chinese_simplified: [
       "懵懂大一",
       "OI afoer",
-      "刚开始的acmer"
+      "刚开始的acmer",
+      "莫问前路，只需前进"
     ],
     english: [
       "A Swift Developer",
@@ -554,7 +555,7 @@ hide:
       "A dreamer",
     ]
   };
-  
+
   // 获取当前语言
   function getCurrentLanguage() {
     try {
@@ -564,23 +565,23 @@ hide:
       return 'chinese_simplified';
     }
   }
-  
+
   // 获取当前语言的短语列表
   function getPhrases() {
     const lang = getCurrentLanguage();
     return phrasesData[lang] || phrasesData.chinese_simplified;
   }
-  
+
   let phraseIndex = 0;
   let charIndex = 0;
   let isDeleting = false;
   let typewriterElement = null;
-  
+
   const typeSpeed = 100;
   const deleteSpeed = 50;
   const pauseTime = 2000;
   const startDelay = 500;
-  
+
   function typeWriter() {
     if (!typewriterElement) {
       typewriterElement = document.getElementById('typewriter-text');
@@ -616,7 +617,7 @@ hide:
       }
     }
   }
-  
+
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', function() {
       setTimeout(typeWriter, startDelay);
@@ -707,7 +708,7 @@ hr {
       font-size: 1.3rem;
     }
   }
-  
+
 </style>
 
 <script>
@@ -718,15 +719,15 @@ hr {
       if (!el) return;
 
       const now = new Date();
-
+    
       const year = now.getFullYear();
       const month = String(now.getMonth() + 1).padStart(2, '0');
       const day = String(now.getDate()).padStart(2, '0');
-
+    
       const hours = String(now.getHours()).padStart(2, '0');
       const minutes = String(now.getMinutes()).padStart(2, '0');
       const seconds = String(now.getSeconds()).padStart(2, '0');
-
+    
       const week = [
         "星期日",
         "星期一",
@@ -736,12 +737,12 @@ hr {
         "星期五",
         "星期六"
       ];
-
+    
       const weekday = week[now.getDay()];
-
+    
       el.textContent = `${year}-${month}-${day} ${weekday} ${hours}:${minutes}:${seconds}`;
     }
-
+    
     // 页面加载后执行
     if (document.readyState === 'loading') {
       document.addEventListener('DOMContentLoaded', () => {
@@ -778,7 +779,7 @@ hr {
         preserveAspectRatio="xMidYMid meet"
       ></svg>
     </div>
-
+    
     <div class="github-heatmap-footer">
       <div class="github-heatmap-legend">
         <span class="legend-label">少</span>
@@ -975,6 +976,7 @@ hr {
       transform: translateY(0);
     }
   }
+  
 </style>
 
 <script>
@@ -987,12 +989,12 @@ hr {
     const LEVEL_OPACITY = [0.05, 0.25, 0.5, 0.75, 1.0];
     const MONTHS = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
     const DAYS = ["", "Mon", "", "Wed", "", "Fri", ""];
-
+    
     function formatDate(dateStr) {
       const d = new Date(dateStr);
       return `${d.getFullYear()}年${d.getMonth() + 1}月${d.getDate()}日`;
     }
-
+    
     async function loadHeatmap() {
       try {
         const response = await fetch(
@@ -1005,25 +1007,25 @@ hr {
         document.getElementById("stats-count").textContent = "--";
       }
     }
-
+    
     function renderHeatmap(data) {
       const svg = document.getElementById("heatmapSvg");
       const statsEl = document.getElementById("stats-count");
       const tooltipEl = document.getElementById("heatmapTooltip");
-
+    
       if (!svg) return;
-
+    
       statsEl.textContent = data.total.lastYear;
-
+    
       const weeks = Math.ceil(data.contributions.length / ROWS);
       const labelOffset = 28;
       const headerOffset = 16;
       const svgWidth = labelOffset + weeks * (CELL + GAP);
       const svgHeight = headerOffset + ROWS * (CELL + GAP);
-
+    
       svg.setAttribute("viewBox", `0 0 ${svgWidth} ${svgHeight}`);
       svg.innerHTML = "";
-
+    
       const monthLabels = [];
       let lastMonth = -1;
       for (let w = 0; w < weeks; w++) {
@@ -1039,9 +1041,9 @@ hr {
           }
         }
       }
-
+    
       const ns = "http://www.w3.org/2000/svg";
-
+    
       // 顶部月份标签
       monthLabels.forEach((m) => {
         const text = document.createElementNS(ns, "text");
@@ -1052,7 +1054,7 @@ hr {
         text.textContent = m.label;
         svg.appendChild(text);
       });
-
+    
       // 左侧星期标签
       DAYS.forEach((d, i) => {
         if (d) {
@@ -1068,13 +1070,13 @@ hr {
           svg.appendChild(text);
         }
       });
-
+    
       // 贡献格子
       data.contributions.forEach((day, idx) => {
         const col = Math.floor(idx / ROWS);
         const row = idx % ROWS;
         const rect = document.createElementNS(ns, "rect");
-
+    
         rect.setAttribute("x", labelOffset + col * (CELL + GAP));
         rect.setAttribute("y", headerOffset + row * (CELL + GAP));
         rect.setAttribute("width", CELL);
@@ -1084,25 +1086,25 @@ hr {
         rect.setAttribute("class", "heatmap-cell");
         rect.setAttribute("data-date", day.date);
         rect.setAttribute("data-count", day.count);
-
+    
         const opacity = LEVEL_OPACITY[Math.min(day.level, 4)];
         rect.setAttribute("fill", `rgba(35, 154, 59, ${opacity})`);
-
+    
         rect.addEventListener("mouseenter", (e) => {
           tooltip(day.date, day.count, e);
         });
-
+    
         rect.addEventListener("mousemove", (e) => {
           tooltip(day.date, day.count, e);
         });
-
+    
         rect.addEventListener("mouseleave", () => {
           tooltipEl.classList.remove("visible");
         });
-
+    
         svg.appendChild(rect);
       });
-
+    
       // 标签与 hover 高亮效果
       if (!document.querySelector("style[data-heatmap-style]")) {
         const style = document.createElement("style");
@@ -1128,7 +1130,7 @@ hr {
       `;
         document.head.appendChild(style);
       }
-
+    
       function tooltip(date, count, event) {
         const text =
           count > 0
@@ -1139,36 +1141,36 @@ hr {
           contentEl.textContent = text;
         }
         tooltipEl.classList.add("visible");
-
+    
         // 按格子定位：显示在对应格子正上方居中，箭头指向格子
         const target = event.currentTarget;
         const margin = 8;
         const gap = 8;
-
+    
         if (target && target.getBoundingClientRect) {
           const cellRect = target.getBoundingClientRect();
           const tooltipRect = tooltipEl.getBoundingClientRect();
-
+    
           let x = cellRect.left + cellRect.width / 2 - tooltipRect.width / 2;
           let y = cellRect.top - tooltipRect.height - gap;
           let arrowPosition = cellRect.left + cellRect.width / 2;
           let isAbove = true;
-
+    
           const maxX = window.innerWidth - tooltipRect.width - margin;
           x = Math.max(margin, Math.min(x, maxX));
-
+    
           if (y < margin) {
             y = cellRect.bottom + gap;
             isAbove = false;
           }
-
+    
           tooltipEl.style.left = x + "px";
           tooltipEl.style.top = y + "px";
-
+    
           // 设置箭头方向并计算箭头位置
           tooltipEl.classList.remove("arrow-top", "arrow-bottom");
           tooltipEl.classList.add(isAbove ? "arrow-bottom" : "arrow-top");
-
+    
           const arrowEl = tooltipEl.querySelector(".github-heatmap-tooltip__arrow");
           if (arrowEl) {
             const arrowOffset = arrowPosition - x;
@@ -1177,7 +1179,7 @@ hr {
         }
       }
     }
-
+    
     if (document.readyState === "loading") {
       document.addEventListener("DOMContentLoaded", loadHeatmap);
     } else {
@@ -1185,6 +1187,17 @@ hr {
     }
   })();
 </script>
+!!!使用说明
+      1.手机端点击左上角“三横杠”可以查看导航栏(电脑端浏览器缩小时同样适用)。
+      <br>
+      2.右上角点击🔍可以搜索文章
+      <br>
+      3.这里既是博客，也是个人笔记系统
+      <br>
+      5.使用出现问题，请在导航栏处找到github地址，在issues中提出问题，谢谢
+      <br>
+      4.如果喜欢我的博客设计，也请于github中点一个免费的star吧😘
+
 ##大事祭
 <div class="grid cards" markdown>
 
@@ -1264,7 +1277,7 @@ hr {
 
 </div>
 
-这里既是博客，也是个人笔记系统
+
 
 后续开发计划：
 
@@ -1279,9 +1292,6 @@ hr {
 - [ ] 社交卡片丰富
 
 - [ ] 友链等功能
-[^Move forward]:莫问前路，只需前进
-[^by mkdocs]:mkdocs开发
-
 
 
 <style>
@@ -1314,35 +1324,35 @@ body {
 (function() {
   const canvas = document.getElementById('gridCanvas');
   if (!canvas) return;
-  
+
   const ctx = canvas.getContext('2d');
   let mouseX = -1000, mouseY = -1000;
   const gridSize = 50;
   const influenceRadius = 150;
   const maxDisplacement = 8;
-  
+
   function resize() {
     canvas.width = window.innerWidth;
     canvas.height = 600; // 只覆盖首页头部区域
   }
-  
+
   resize();
   window.addEventListener('resize', resize);
-  
+
   document.addEventListener('mousemove', function(e) {
     const rect = canvas.getBoundingClientRect();
     mouseX = e.clientX - rect.left;
     mouseY = e.clientY - rect.top;
   });
-  
+
   document.addEventListener('mouseleave', function() {
     mouseX = -1000;
     mouseY = -1000;
   });
-  
+
   let animationFrameId = null;
   let isVisible = true;
-  
+
   // 使用 Intersection Observer 优化性能：当 Canvas 不可见时暂停动画
   const observer = new IntersectionObserver((entries) => {
     isVisible = entries[0].isIntersecting;
@@ -1350,11 +1360,11 @@ body {
       draw();
     }
   }, { threshold: 0 });
-  
+
   if (canvas) {
     observer.observe(canvas);
   }
-  
+
   function draw() {
     if (!isVisible) {
       animationFrameId = null;
@@ -1416,7 +1426,7 @@ body {
     
     animationFrameId = requestAnimationFrame(draw);
   }
-  
+
   // 初始绘制
   if (canvas) {
     draw();
@@ -1453,7 +1463,7 @@ body {
 </style>
 
 
- 
+
 <!-- Umami Analytics -->
 <script defer src="https://cloud.umami.is/script.js" data-website-id="061b4dea-9b7b-4ffa-9071-74cde70f3dfb"></script>
 
