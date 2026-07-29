@@ -1,0 +1,2210 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../%E5%A4%B1%E6%84%8F/">
+      
+      
+        <link rel="next" href="../%E5%AE%B9%E6%96%A5%E5%92%8C%E5%8F%8D%E6%BC%94/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../image/头像.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>字符串算法学习笔记 - zhehaya blog</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="zhehaya blog" class="md-header__button md-logo" aria-label="zhehaya blog" data-md-component="logo">
+      
+  <img src="../../image/头像.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            zhehaya blog
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              字符串算法学习笔记
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  首页
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../10.14%E6%A8%A1%E6%8B%9F%E8%B5%9B%E6%80%BB%E7%BB%93/" class="md-tabs__link">
+          
+  
+  
+  OI笔记（杂
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/CF2244D/" class="md-tabs__link">
+          
+  
+  
+  算法竞赛
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="zhehaya blog" class="md-nav__button md-logo" aria-label="zhehaya blog" data-md-component="logo">
+      
+  <img src="../../image/头像.svg" alt="logo">
+
+    </a>
+    zhehaya blog
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OI笔记（杂
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    OI笔记（杂
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10.14%E6%A8%A1%E6%8B%9F%E8%B5%9B%E6%80%BB%E7%BB%93/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10.14模拟赛总结
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.22%E6%80%BB%E7%BB%93%26%E5%8F%8D%E6%80%9D/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.22总结&amp;反思
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.23%E6%80%BB%E7%BB%93%26%E5%8F%8D%E6%80%9D/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.23总结&反思
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.24%E6%80%BB%E7%BB%93%26%E5%8F%8D%E6%80%9D%28%E9%99%84%E5%8A%A0%E4%B9%8B%E5%90%8E%E8%AE%A1%E5%88%92/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    计划
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../8.6%E6%A8%A1%E6%8B%9F%E8%B5%9B%E6%80%BB%E7%BB%93/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8.6模拟赛总结
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../8.8%E8%B6%A3%E9%A2%98%E6%9D%82%E9%A2%98%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8.8趣题杂题学习笔记
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../NOI%202016%20%E5%BE%AA%E7%8E%AF%E4%B9%8B%E7%BE%8E/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    T574434 入穿入烂
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../P10977%E7%AC%94%E8%AE%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    P10977笔记
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../P7831%E8%AE%B0%E5%BD%95/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    P1781记录
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%5BAGC019F%5D%20Yes%20or%20No/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    [AGC019F] Yes or No
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../csps%E5%88%9D%E8%B5%9B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CSP-S初赛复习
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../trick%E8%AE%B0%E5%BD%95/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    trick记录
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%8D%9A%E5%BC%88%E8%AE%BA%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    博弈论学习笔记
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%8F%8D%E6%80%9D10.15/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    反思10.15
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%9B%BD%E5%BA%86day1%E8%A1%A5%E9%A2%98/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    国庆day1补题
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%A4%B1%E6%84%8F/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    失意
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    字符串算法学习笔记
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    字符串算法学习笔记
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        注：码风较差，慎读
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1hash" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.hash算法
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.hash算法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#p3763" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        P3763
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2manacher" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.Manacher算法
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3kmp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.KMP算法
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.KMP算法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#kmp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        KMP算法的性质运用记录
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.字典树
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5ex-kmp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.EX KMP
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.最小表示法
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7pam" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.PAM
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%AE%B9%E6%96%A5%E5%92%8C%E5%8F%8D%E6%BC%94/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    容斥和反演
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%9C%9F%E6%9C%9B%E4%B8%8E%E6%A6%82%E7%8E%87%E8%AE%B0%E5%BD%95/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    期望与概率记录
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%9E%84%E9%80%A0%E9%A2%98%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    构造题学习笔记
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%9C%81%E9%80%89%E5%A4%87%E8%80%83%E8%AE%B0%E5%BD%95/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    省选备考记录（12月15号始
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    组合数学
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%BD%91%E7%BB%9C%E6%B5%81%E6%9D%82%E7%AC%94%E8%AE%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    网络流杂笔记
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%AF%A5%E6%B3%A8%E6%84%8F%E7%9A%84%E5%9F%BA%E7%A1%80/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    该注意的基础
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E9%A2%98%E7%9B%AE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    不一样的询问
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E9%A2%98%E7%9B%AE%E8%AE%B0%E5%BD%95%EF%BC%88%E5%B7%B2%E5%AE%8C%E7%BB%93/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    算法&amp;题目&amp;trick&amp;重要点记录（十月初始）（持续更新(已完结
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    算法竞赛
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    算法竞赛
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/CF2244D/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CF2244D
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/P1950/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    P1950
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/P4653/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    P4653
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/Raney/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Raney
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/%E5%85%B3%E4%BA%8E%E5%8D%95%E8%B0%83%E6%A0%88%E9%98%9F%E5%88%97/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    关于单调栈队列
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/%E5%8D%A1%E7%89%B9%E5%85%B0%E6%95%B0%E7%B1%BB%E4%BC%BC%E7%89%A9%E7%9A%84%E5%87%A0%E4%BD%95%E6%80%9D%E6%83%B3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    卡特兰数类似物的几何思想
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/%E5%B7%AE%E5%88%86/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    差分
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/%E5%BF%AB%E9%80%9F%E5%B9%82/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    快速幂
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/%E6%95%B0%E7%BB%84%E5%88%9D%E5%A7%8B%E5%8C%96/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数组初始化
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/%E6%9D%82/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    杂
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/%E6%A8%A1%E6%9D%BF/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ACM板子
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/%E7%BA%BF%E6%80%A7%E5%9F%BA%E5%A4%8D%E4%B9%A0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    线性基
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/%E9%80%86%E5%BA%8F%E5%AF%B9%E7%9A%84%E6%80%A7%E8%B4%A8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    逆序对
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/%E9%87%8D%E8%BD%BD%E8%BF%90%E7%AE%97%E7%AC%A6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    重载运算符
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        注：码风较差，慎读
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1hash" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.hash算法
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.hash算法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#p3763" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        P3763
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2manacher" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.Manacher算法
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3kmp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.KMP算法
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.KMP算法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#kmp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        KMP算法的性质运用记录
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.字典树
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5ex-kmp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.EX KMP
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.最小表示法
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7pam" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.PAM
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="_1">字符串算法学习笔记<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h2 id="_2">注：码风较差，慎读<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h2 id="1hash">1.hash算法<a class="headerlink" href="#1hash" title="Permanent link">&para;</a></h2>
+<p>相对于字符串，数字相对来说好处理一些，我们可以考虑把每一个字符串都对应一个数字，这样就可以非常简便地解决字符串的一些问题，而且效率还极高</p>
+<p>字符串哈希，就是一种可以理解为将字符串映射到一个整数的方法。 比如BKDPHash是一种很好的哈希算法，假如字符串为a，则它对应的哈希值就为：</p>
+<p><span class="arithmatex">\(BKDPhash(a)=\sum_{i=1}^{a.length()}{a[i-1]\times P^{a.length()-i}} （mod   Q）\)</span> </p>
+<p>怎么去理解这个哈希函数呢？可以发现，这其实是把字符串转换为了一个P进制的数的过程（所以也叫“进制哈希”），这样做可能会导致数字过大，导致溢出，所以转换完后要再对Q进行取余。</p>
+<p>如何去计算哈希？可以采用递推的方法，采用一个数组记录字符串前i位的哈希值，例如,S="abcdefg",它的前缀有{a,ab,abc,abcd,…}。计算过程如下。</p>
+<p>(1)计算前缀a的哈希值,得 <span class="arithmatex">\(H(a)\)</span> ,计算时间为<span class="arithmatex">\(O(1)\)</span>。</p>
+<p>(2)计算前缀ab的哈希值。 <span class="arithmatex">\(H(ab)=H(a)\times P+H(b)\)</span> ,计算时间为 <span class="arithmatex">\(O(1)\)</span> 。</p>
+<p>(3)计算前缀abc的哈希值。 <span class="arithmatex">\(H(abc)=H(ab)\times P+H(c)\)</span> ,计算时间为 <span class="arithmatex">\(O(1)\)</span>,等等……</p>
+<p>只需一个for 循环遍历S,就能在 <span class="arithmatex">\(O(n)\)</span> 的时间内预处理所有前缀的哈希值。</p>
+<p>计算出S的所有前缀的哈希值后,能以 <span class="arithmatex">\(O(1)\)</span> 的复杂度查询它的任意子串的哈希值,如 <span class="arithmatex">\(H(de)=H(abcde)-H(abc)\times P^{2}\)</span> 。求区间[L,R]的哈希值的代码可以这样写(其中 P[i]表示P的i次方):</p>
+<div class="highlight"><pre><span></span><code><span class="n">ull</span><span class="w"> </span><span class="nf">get_hash</span><span class="p">(</span><span class="n">ull</span><span class="w"> </span><span class="n">L</span><span class="p">,</span><span class="n">ull</span><span class="w"> </span><span class="n">R</span><span class="p">){</span><span class="k">return</span><span class="w"> </span><span class="n">H</span><span class="p">[</span><span class="n">R</span><span class="p">]</span><span class="o">-</span><span class="n">H</span><span class="p">[</span><span class="n">L</span><span class="mi">-1</span><span class="p">]</span><span class="o">*</span><span class="n">P</span><span class="p">[</span><span class="n">R</span><span class="o">-</span><span class="n">L</span><span class="o">+</span><span class="mi">1</span><span class="p">];}</span>
+</code></pre></div>
+<p>很多字符串问题和前缀、后缀有关,如回文串问题、字符串匹配问题等。利用进制哈希，能以不错的时间复杂度求解。虽然效率比KMP、Manacher等经典算法差一些,占用空间也大一些,但是一般情况下够用。</p>
+<p>最后要说明的是哈希碰撞，因为要对Q取余，所以有可能出现两个字符串哈希值一样的情况，这就叫哈希碰撞，虽然概率小，但是某些人喜欢卡掉用朴素方法实现的哈希。这个时候通常需要用双哈希一类的技巧。</p>
+<p>双哈希，指的是对字符串应用两对不同的 P和Q得到不同的哈希值。只有这两个哈希值都对应相同，才判定两个字符串相同（相当于上了两重保障）。 </p>
+<p>另外朴素方法中为了有效避免哈希碰撞，进制P常用的数值有31,131,1313,13131,131313等。</p>
+<p>还有要是一个题目中即使用hash也可能会被时间卡掉，这是因为取模会花费大量时间，可以使用unsigned long long的自然溢出（相当于对<span class="arithmatex">\(2^{64}\)</span>取模）(但不会被时间卡的时候**千万别写**)。</p>
+<h3 id="p3763">P3763<a class="headerlink" href="#p3763" title="Permanent link">&para;</a></h3>
+<p>题目：洛谷P3370,P3501,P4391P5270,P5537</p>
+<h2 id="2manacher">2.Manacher算法<a class="headerlink" href="#2manacher" title="Permanent link">&para;</a></h2>
+<p>用于解决最大回文子串的有效算法。</p>
+<p>回文串是从头到尾读与从尾到头读都相同的字符序列。一个回文串是“镜像对称”的，反转之后与原串相同。回文串有两种,一种长度为奇数,有一个中心字符,如"abcba"中的'c';一种长度为偶数,有两个相同的中心字符(也可以看作没有中心字符),如"abba"中的"bb"。</p>
+<p>对于解决一个字符串的最大回文子串我们最低级的做法是暴力，中心扩展法是有效的，即依次以每个字符为中心向两边扩展。</p>
+<p>可是这样肯定有很多浪费（因为重复检查）啊，于是Manacher算法就闪亮登场~</p>
+<p>因为回文串有时最中间是一个数，有时中间是两个数，不方便操作，所以刚开始要对字符串进行一个小小的改进来更便捷的操作。在字符串的每个字符左右插入一个不属于此字符串的字符,如'#'。</p>
+<p>如把"abcba"变成了"#a#b#c#b#a#",中心字符为'c';把"abba"变成了"#a#b#b#a#",中心字符为'#'。经过这样的变换,字符串S的新长度都是奇数,中心字符都只有一个。另外,为了编程方便,在字符串的首尾再加上两个奇怪字符防止越界,如把#a#b#b#a#"的首尾分别加上'@'和'&amp;" 变成"@#a#b#b#a#&amp;"。</p>
+<p>然后我们定义数组P,其中P[i]是以字符s[i]为中心字符的最长回文子串的长度，设我们的字符串是S</p>
+<p>设已经计算出了 <span class="arithmatex">\(P[0]\sim P[i-1]\)</span> ,下一步继续计算 P。令R为 <span class="arithmatex">\(P[0]\sim P[i-1]\)</span> 这些回文串中最大的右端点,C是这个R对应的回文串的中心点。也就是说,P[C]是已经求得的一个回文串,它的右端点是R,且R是所有已经求得的回文串的右端点最大值 <span class="arithmatex">\(R=C+P[C]\)</span> 。在字符串S上,R左边的字符已经检查过,R右边的字符还未检查。</p>
+<p>下面计算P[i]。设i是i关于C的镜像点,P[i]已经计算出来了。</p>
+<p>若 <span class="arithmatex">\(i&gt;R\)</span> ,由于R右边的字符都没有检查过,只能初始化 <span class="arithmatex">\(P[i]=1\)</span> ,然后用暴力中心护展法求 P[i]。</p>
+<p>若 <span class="arithmatex">\(i&lt;R\)</span> ,细分为两种情况。</p>
+<p>(1)i的回文串(i的虚线框部分)被C的回文串包含,即回文串的左端点比C回文串的左端点大,按照镜像原理,镜像i的回文不会越过C的右端点R,有 <span class="arithmatex">\(P[i]=P[j]\)</span> 。根据 <span class="arithmatex">\((i+j)/2=C\)</span> ,得 <span class="arithmatex">\(j=2C-i\)</span> , <span class="arithmatex">\(P[i]=P[j]=P[2C-i]\)</span> 。然后继续用暴力中心扩展法完成P[i]的计算,如图(a)所示。</p>
+<p>(2)i的回文串(j的虚线框部分)不被C的回文串包含,即j回文串的左端点比C回文串的左端点小。i回文串的右端点比R大,但是由于R右边的字符还没有检查过,只能先让 P[i]被限制在R之内,有 <span class="arithmatex">\(P[i]=w=R-i=C+P[C]-i\)</span> 。然后继续用暴力中心扩展法完成 P[i]的计算,如图(b)所示。</p>
+<p><img alt="" src="https://pic4.zhimg.com/v2-5e20f1aa141c742dcaecdb3adc4eb04f_b.jpg" /></p>
+<p>容易发现总复杂度为 <span class="arithmatex">\(O(n)\)</span> </p>
+<p>题目：洛谷P3805</p>
+<h2 id="3kmp">3.KMP算法<a class="headerlink" href="#3kmp" title="Permanent link">&para;</a></h2>
+<p>对于在一个长字符串中找另一个短字符串（有可能多次出现，都要找到）通常叫做**模式匹配**，KMP算法是解决模式匹配问题的一个非常有效的算法。</p>
+<p>先来看朴素的模式匹配算法，即为暴力，把长字符串一个一个扫过去，对于扫过的每一个字符，都逐个往后匹配短字符串的内容，复杂度最优能达到 <span class="arithmatex">\(O(n)\)</span> (前面每一个刚开始都不匹配），最差能达到 <span class="arithmatex">\(O(nm)\)</span> </p>
+<p>如何进行改进？观察暴力法的过程，可以发现一些被浪费的时间，有些字符会被扫很多遍，以长字符串S="abababc",短字符串P="ababc"为例来分析我们如何进行优化：</p>
+<p>刚开始扫描S，从第一个开始往后匹配,只能匹配到"abab",再往后便不能匹配，按照暴力算法就再从第二个往后匹配……</p>
+<p>可是这样真的有必要吗？我们前面已经检查过了"abab"，再继续就相当于重复检查。再观察可以发现下一个会匹配到的便是从S的第三个开始的"ababc",这里面中的"ab"在第一次检查是已经检查过了，为什么会这样？思考一下便知"ab"同时是"abab"的前缀和后缀,所以会被重复检查，同理，为了防止重复检查，只需在一次检查过后从同时是这次检查的字符串的前缀与后缀的字符串开始往后检查即可</p>
+<p>好了，现在我们貌似是抓住了事情的关键，便是要知道一个字符串中同时是前缀与后缀的字符串是什么，这时，可以明确出border和前缀数组的概念：</p>
+<ul>
+<li>一个字符串S的 <strong>border</strong>，是这样一个字符串 <span class="arithmatex">\(S_{0}\)</span> ，满足 <span class="arithmatex">\(S_{0}\)</span><strong>既是S的前缀也是S的后缀，但</strong><span class="arithmatex">\(S_{0}\ne S\)</span><strong>。</strong></li>
+<li>一个字符串可以有多个 border，也可以一个 border 都没有。</li>
+</ul>
+<p>由此定义**前缀数组  **<span class="arithmatex">\(next[i]\)</span> ：</p>
+<ul>
+<li><span class="arithmatex">\(next[i]\)</span> 表示 的前缀 <span class="arithmatex">\(S[0...i-1]\)</span> 的**最长的 border 的长度**。特别地,若不存在任何 border，则<span class="arithmatex">\(next[i]=0\)</span>。 </li>
+</ul>
+<p>那么该如何计算前缀数组?从一个例子出发：</p>
+<p>P="abcaab",前缀数组计算过程如下表所示,每行带下画线的子串是最长公共前后缀border。</p>
+<p><img alt="" src="https://pic4.zhimg.com/v2-21d2a794af5d492aaf88c5c4f37883b3_b.jpg" /></p>
+<p>对于前缀数组，存在一种巧妙的递推关系，假设我们已经计算出了 <span class="arithmatex">\(next[1...i]\)</span> ,便可以计算出 <span class="arithmatex">\(next[i+1]\)</span> :</p>
+<p>设此时上一个计算所对应的前缀最后的索引为j-1，则此时分为两种情况：</p>
+<ol>
+<li><span class="arithmatex">\(P[i]=P[j]\)</span> ，则next数组可以直接往下递推为 <span class="arithmatex">\(next[i+1]=next[i]+1\)</span> </li>
+<li><span class="arithmatex">\(P[i]\ne P[j]\)</span> ，以下图来分析，说明后缀的“ <span class="arithmatex">\(阴影 w+P[i]\)</span> ”与前缀的“ <span class="arithmatex">\(阴影 w+P[j]\)</span> ”不匹配,只能缩小范围找新的交集。把前缀向后滑动,也就是通过减小j缩小前缀的范围,直到找到一个匹配的 <span class="arithmatex">\(P[i]=P[j]\)</span> 为止。如何减小j?只能在w上继续找最大交集,这个新的最大交集是 $ Next[j]$ ,所以更新 <span class="arithmatex">\(j'=Next[j]\)</span> 。图 (b)给出了完整的子串 $ P[0]\sim P[i]$ ,最后的字符 $ P[i]≠P[i]$ 。斜线阴影v是w上的最大交集,下一步判断:若 <span class="arithmatex">\(P[i]=P[j']\)</span> ,则 <span class="arithmatex">\(Next[i+1]\)</span> 等于v的长度加 1,即 $ Next[j']+1$ ; 若 <span class="arithmatex">\(P[i]≠P[j']\)</span> ,继续更新 <span class="arithmatex">\(P[i]≠P[j']\)</span> 。</li>
+</ol>
+<p><img alt="" src="https://pic4.zhimg.com/v2-9a6200e5845686a6ef7cbd3e736ba6bf_b.jpg" /></p>
+<p>就这样重复操作，便可以计算出前缀数组</p>
+<p>总复杂度为 <span class="arithmatex">\(O(n+m)\)</span> </p>
+<p>既然计算出了前缀数组，我们便可以进行较为简便的匹配,我们以一道题来说明模版代码和运用：</p>
+<p>题目：洛谷P4824</p>
+<p><a href="https://www.luogu.com.cn/problem/P4824">[USACO15FEB] Censoring S</a></p>
+<p>简要说明一下题意：给定一个字符串S和一个子串T,删除S中第1次出现的T,把剩下的拼在一起,然后继续删除T,直到S中没有T,最后输出S剩下的部分。S中最多有 <span class="arithmatex">\(10^{6}\)</span> 个字符。</p>
+<p>本题的麻烦之处在于删除一个T之后两端的字符串有可能会拼接出一个新的T。例如,S="ababccy",T="abc",删除第1个T后,S="abcy",出现了一个新的T,继续删除,得S="v"</p>
+<p>如何去解决这个问题呢？对KMP算法有深入理解了话可以明白完全不用每次删除完之后重复检查，我们只需开一个栈便可以解决它</p>
+<p>按照寻常的KMP板子写，只不过要开一个和长字符串一样大的数组记录每一位所对应的j值，然后遍历长字符串时把每次的i值依次入栈，如果匹配到了，则把被匹配到的所有i值出栈，j值换为栈顶，最后输出栈里索引所对应的值即可。</p>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="cpf">&lt;bits/stdc++.h&gt;</span>
+<span class="cp">#define N 1000010</span>
+<span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">la</span><span class="p">,</span><span class="n">lb</span><span class="p">,</span><span class="n">res</span><span class="p">;</span>
+<span class="kt">char</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="n">N</span><span class="p">],</span><span class="n">b</span><span class="p">[</span><span class="n">N</span><span class="p">];</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">p</span><span class="p">[</span><span class="n">N</span><span class="p">],</span><span class="n">f</span><span class="p">[</span><span class="n">N</span><span class="p">];</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">St</span><span class="p">[</span><span class="n">N</span><span class="p">],</span><span class="n">top</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">;</span>
+<span class="w">    </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%s&quot;</span><span class="p">,</span><span class="n">a</span><span class="o">+</span><span class="mi">1</span><span class="p">);</span>
+<span class="w">    </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%s&quot;</span><span class="p">,</span><span class="n">b</span><span class="o">+</span><span class="mi">1</span><span class="p">);</span>
+<span class="w">    </span><span class="n">la</span><span class="o">=</span><span class="n">strlen</span><span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="mi">1</span><span class="p">);</span>
+<span class="w">    </span><span class="n">lb</span><span class="o">=</span><span class="n">strlen</span><span class="p">(</span><span class="n">b</span><span class="o">+</span><span class="mi">1</span><span class="p">);</span>
+<span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;=</span><span class="n">lb</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="c1">//计算前缀数组</span>
+<span class="w">        </span><span class="k">while</span><span class="p">(</span><span class="n">j</span><span class="o">&amp;&amp;</span><span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">!=</span><span class="n">b</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span>
+<span class="w">            </span><span class="n">j</span><span class="o">=</span><span class="n">p</span><span class="p">[</span><span class="n">j</span><span class="p">];</span>
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">==</span><span class="n">b</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span>
+<span class="w">            </span><span class="n">j</span><span class="o">++</span><span class="p">;</span>
+<span class="w">        </span><span class="n">p</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="n">j</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;=</span><span class="n">la</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="c1">//匹配过程</span>
+<span class="w">        </span><span class="k">while</span><span class="p">(</span><span class="n">j</span><span class="o">&amp;&amp;</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">!=</span><span class="n">b</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span>
+<span class="w">            </span><span class="n">j</span><span class="o">=</span><span class="n">p</span><span class="p">[</span><span class="n">j</span><span class="p">];</span>
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">==</span><span class="n">b</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span>
+<span class="w">            </span><span class="n">j</span><span class="o">++</span><span class="p">;</span>
+<span class="w">        </span><span class="n">f</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="n">j</span><span class="c1">//记录j只能;</span>
+<span class="w">        </span><span class="n">St</span><span class="p">[</span><span class="o">++</span><span class="n">top</span><span class="p">]</span><span class="o">=</span><span class="n">i</span><span class="p">;</span><span class="c1">//入栈</span>
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">j</span><span class="o">==</span><span class="n">lb</span><span class="p">)</span>
+<span class="w">            </span><span class="n">top</span><span class="o">-=</span><span class="n">lb</span><span class="p">,</span><span class="n">j</span><span class="o">=</span><span class="n">f</span><span class="p">[</span><span class="n">St</span><span class="p">[</span><span class="n">top</span><span class="p">]];</span><span class="c1">//出栈</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;=</span><span class="n">top</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%c&quot;</span><span class="p">,</span><span class="n">a</span><span class="p">[</span><span class="n">St</span><span class="p">[</span><span class="n">i</span><span class="p">]]);</span><span class="c1">//输出</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>注：此题可以采用哈希+栈的方法解决</p>
+<h3 id="kmp">KMP算法的性质运用记录<a class="headerlink" href="#kmp" title="Permanent link">&para;</a></h3>
+<p>KMP算法运算最长border。</p>
+<p>注意如果border长度大于字符串长度一半，即重叠了，这是有很多有趣的性质的</p>
+<p>查找最小循环节：如果是循环的字符串了化，这个就等于字符串长度-border，注意此时border长度大于等于字符串长度一半。</p>
+<p>重叠的话的第一个不重叠的后继border可以作为后面继续扩展的：</p>
+<p>首先肯定是有下一个有正值的<span class="arithmatex">\(border[border[now]]\)</span>，因为重叠了的缘故，所以退一下就可以知道一定有一个后继border长度为<span class="arithmatex">\(\frac{2border[now]-lens}{2}\)</span>,即border重叠的部分，它必然是第一个不重叠的后继border，因为画图推导可以发现如果不是现在border就可以扩展变为更大的border。</p>
+<p>考虑两种可能：</p>
+<ol>
+<li>下一个的border是直接扩展上一个的border，这种情况下推一下就可以知道这样我们必然有的后继border也一定会往后扩展。</li>
+<li>下一个border扩展时是需要后退，这个就显然可以了，因为后退的第一个就是我们必然有的后继border了。</li>
+</ol>
+<p>这个结论可以用于动物园这道题求解。</p>
+<p>题目：洛谷P4391,P3375，P5410等</p>
+<h2 id="4">4.字典树<a class="headerlink" href="#4" title="Permanent link">&para;</a></h2>
+<p>是这样的，字典树也被称为前缀树,它的每个结点用来维护字符串的前缀，形象的话可以用查字典来比喻，你一个一个词往后查正如正在深度优先搜索一颗树，每一个完整的词对应的都是从一个根节点的子节点的到另一个节点的完整的路径，例如ce,cee,bacd,bsa,cd，这些字符串的字典树可以构建为：</p>
+<p><img alt="" src="https://pic2.zhimg.com/v2-9e420865dfbaa9da17c7aa02f747e4e5_b.jpg" /></p>
+<p>可以知道一些性质辣！</p>
+<ol>
+<li>根结点不包含字符，其余结点都有字符</li>
+<li>从根节点到某一个节点,路径上经过的字符连接起来,为该节点对应的字符串</li>
+<li>一个完整的单词并不是存储在某个节点上,而是存储在一条链上;</li>
+<li>一个节点的所有子节点都有相同的前缀</li>
+</ol>
+<p>ok，知道了是啥，我们如何建树呢？</p>
+<p>就是正常的建树步骤辣（废话逃），用图的邻接表来存储，然后就是依次插入字符串</p>
+<p>插入字符串操作：</p>
+<div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">insert</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="n">str</span><span class="p">[]){</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">p</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">len</span><span class="o">=</span><span class="n">strlen</span><span class="p">(</span><span class="n">str</span><span class="p">);</span>
+<span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">len</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">c</span><span class="o">=</span><span class="n">getnum</span><span class="p">(</span><span class="n">str</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">t</span><span class="p">[</span><span class="n">p</span><span class="p">][</span><span class="n">c</span><span class="p">])</span>
+<span class="w">            </span><span class="n">t</span><span class="p">[</span><span class="n">p</span><span class="p">][</span><span class="n">c</span><span class="p">]</span><span class="o">=++</span><span class="n">idx</span><span class="p">;</span>
+<span class="w">        </span><span class="n">p</span><span class="o">=</span><span class="n">t</span><span class="p">[</span><span class="n">p</span><span class="p">][</span><span class="n">c</span><span class="p">];</span>
+<span class="w">        </span><span class="n">cnt</span><span class="p">[</span><span class="n">p</span><span class="p">]</span><span class="o">++</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>当把字符串插入完后，接下来便是应用</p>
+<p>最常用的是查询。</p>
+<p>以洛谷上的模版字典树**P8306**为例</p>
+<p><a href="https://www.luogu.com.cn/problem/P8306">【模板】字典树 - 洛谷</a></p>
+<p>可以看出要求是查询某字符串是多少字符串的前缀，于是我们可以写出查询函数，和插入函数很类似，只是遇到无法匹配时返回0以及一些别的细节：</p>
+<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">find</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="n">str</span><span class="p">[]){</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">p</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">len</span><span class="o">=</span><span class="n">strlen</span><span class="p">(</span><span class="n">str</span><span class="p">);</span>
+<span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">len</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">c</span><span class="o">=</span><span class="n">getnum</span><span class="p">(</span><span class="n">str</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">t</span><span class="p">[</span><span class="n">p</span><span class="p">][</span><span class="n">c</span><span class="p">])</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">        </span><span class="n">p</span><span class="o">=</span><span class="n">t</span><span class="p">[</span><span class="n">p</span><span class="p">][</span><span class="n">c</span><span class="p">];</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">cnt</span><span class="p">[</span><span class="n">p</span><span class="p">];</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>当然于此同时插入函数也得改一下（得顺便记录一下结点下有多少个字符串），然后完整代码给出：</p>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="cpf">&lt;bits/stdc++.h&gt;</span>
+<span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">T</span><span class="p">,</span><span class="n">q</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="n">t</span><span class="p">[</span><span class="mi">3000005</span><span class="p">][</span><span class="mi">65</span><span class="p">],</span><span class="n">cnt</span><span class="p">[</span><span class="mi">3000005</span><span class="p">],</span><span class="n">idx</span><span class="p">;</span>
+<span class="kt">char</span><span class="w"> </span><span class="n">s</span><span class="p">[</span><span class="mi">3000005</span><span class="p">];</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">getnum</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="n">x</span><span class="p">){</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">x</span><span class="o">&gt;=</span><span class="sc">&#39;A&#39;</span><span class="o">&amp;&amp;</span><span class="n">x</span><span class="o">&lt;=</span><span class="sc">&#39;Z&#39;</span><span class="p">)</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">x</span><span class="o">-</span><span class="sc">&#39;A&#39;</span><span class="p">;</span>
+<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="n">x</span><span class="o">&gt;=</span><span class="sc">&#39;a&#39;</span><span class="o">&amp;&amp;</span><span class="n">x</span><span class="o">&lt;=</span><span class="sc">&#39;z&#39;</span><span class="p">)</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">x</span><span class="o">-</span><span class="sc">&#39;a&#39;</span><span class="o">+</span><span class="mi">26</span><span class="p">;</span>
+<span class="w">    </span><span class="k">else</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">x</span><span class="o">-</span><span class="sc">&#39;0&#39;</span><span class="o">+</span><span class="mi">52</span><span class="p">;</span>
+<span class="p">}</span><span class="w"> </span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">insert</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="n">str</span><span class="p">[]){</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">p</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">len</span><span class="o">=</span><span class="n">strlen</span><span class="p">(</span><span class="n">str</span><span class="p">);</span>
+<span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">len</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">c</span><span class="o">=</span><span class="n">getnum</span><span class="p">(</span><span class="n">str</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">t</span><span class="p">[</span><span class="n">p</span><span class="p">][</span><span class="n">c</span><span class="p">])</span>
+<span class="w">            </span><span class="n">t</span><span class="p">[</span><span class="n">p</span><span class="p">][</span><span class="n">c</span><span class="p">]</span><span class="o">=++</span><span class="n">idx</span><span class="p">;</span>
+<span class="w">        </span><span class="n">p</span><span class="o">=</span><span class="n">t</span><span class="p">[</span><span class="n">p</span><span class="p">][</span><span class="n">c</span><span class="p">];</span>
+<span class="w">        </span><span class="n">cnt</span><span class="p">[</span><span class="n">p</span><span class="p">]</span><span class="o">++</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">find</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="n">str</span><span class="p">[]){</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">p</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">len</span><span class="o">=</span><span class="n">strlen</span><span class="p">(</span><span class="n">str</span><span class="p">);</span>
+<span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">len</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">c</span><span class="o">=</span><span class="n">getnum</span><span class="p">(</span><span class="n">str</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">t</span><span class="p">[</span><span class="n">p</span><span class="p">][</span><span class="n">c</span><span class="p">])</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">        </span><span class="n">p</span><span class="o">=</span><span class="n">t</span><span class="p">[</span><span class="n">p</span><span class="p">][</span><span class="n">c</span><span class="p">];</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">cnt</span><span class="p">[</span><span class="n">p</span><span class="p">];</span>
+<span class="p">}</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(){</span>
+<span class="w">    </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="o">&amp;</span><span class="n">T</span><span class="p">);</span>
+<span class="w">    </span><span class="k">while</span><span class="p">(</span><span class="n">T</span><span class="o">--</span><span class="p">){</span>
+<span class="w">        </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;=</span><span class="n">idx</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<span class="w">            </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">j</span><span class="o">&lt;=</span><span class="mi">122</span><span class="p">;</span><span class="n">j</span><span class="o">++</span><span class="p">)</span>
+<span class="w">                </span><span class="n">t</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+<span class="w">        </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;=</span><span class="n">idx</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<span class="w">            </span><span class="n">cnt</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+<span class="w">        </span><span class="n">idx</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+<span class="w">        </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d%d&quot;</span><span class="p">,</span><span class="o">&amp;</span><span class="n">n</span><span class="p">,</span><span class="o">&amp;</span><span class="n">q</span><span class="p">);</span>
+<span class="w">        </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;=</span><span class="n">n</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+<span class="w">            </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%s&quot;</span><span class="p">,</span><span class="n">s</span><span class="p">);</span>
+<span class="w">            </span><span class="n">insert</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;=</span><span class="n">q</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+<span class="w">            </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%s&quot;</span><span class="p">,</span><span class="n">s</span><span class="p">);</span>
+<span class="w">            </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="n">find</span><span class="p">(</span><span class="n">s</span><span class="p">));</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>应用：</p>
+<p><strong>01 字典树：</strong></p>
+<p>当把一个整数用二进制表示后，它就可以看成一个由 01 组成的字符串（当然也可能是由别的什么进制）。多个整数放在一起，就可以放进一棵字典树里来。这种类型的题目通常会结合位运算、贪心。</p>
+<p>把数拆成二进制的形式，然后每一位都只有两个字符：0或1，然后按照trie的方式存下来，以达到节省空间的效果。</p>
+<p>如下图：</p>
+<p><img alt="" src="https://pic3.zhimg.com/v2-9f4714db7fe4f41b8a2a7ee42f2ad6ae_b.jpg" /></p>
+<p>那就以一道题目为例吧：</p>
+<p>洛谷P4551</p>
+<p><a href="https://www.luogu.com.cn/problem/P4551">最长异或路径 - 洛谷</a></p>
+<p>题意：给定一棵 n个点的带权树，结点下标从1开始到 n。寻找 树中找两个结点，求最长的异或路径。异或路径指的是指两个结点之间唯一路径上的所有边权的异或。</p>
+<p>首先看到这道题，其实我们可以容易的先推出这个结论：</p>
+<p>任意两个节点的异或路径都可以表示为第一个节点到根节点的异或路径值再异或上第二个节点到根节点的异或路径值，这个是因为一个数两次异或上另一个数还是等于这个数，所以两个结点到根节点重复的地方直接就被忽略了</p>
+<p>然后就可以有这样的思路：</p>
+<ol>
+<li>求出根节点到每一个节点的异或路径</li>
+<li>对每一个节点求出对于这个节点与别的节点的最大异或值</li>
+<li>选出所有节点中最大的即是答案</li>
+</ol>
+<p>我们的重点其实在第二步，求出谁和某个数异或最大，这时可以用到01字典树，一点一点往下遍历，对于数的每一位进行贪心，如果这一位有一个与它不同的，即异或后是1，那我们就顺着这条路往下走；否则就顺着原路往下走。</p>
+<p>这样贪心为什么是对的呢？因为最高位越大数相对的越大~~</p>
+<p>然后就解决这道题了</p>
+<p>题目：洛谷P3879,P2292</p>
+<h2 id="5ex-kmp">5.EX KMP<a class="headerlink" href="#5ex-kmp" title="Permanent link">&para;</a></h2>
+<p>扩展 KMP（EXKMP，Z 函数）是一种求字符串的每个后缀与原串的最长公共前缀的算法。</p>
+<p>最长公共前缀（LCP）：最大的 k 满足两个字符串 a, b 长度为 k 的前缀相等。</p>
+<p>我们来考虑如何去计算Z函数，采取递推的方法，依次计算 <span class="arithmatex">\(z_0\sim z_n\)</span> 的值，假设我们要计算 <span class="arithmatex">\(z_i\)</span> , <span class="arithmatex">\(r\)</span> 为当前前面算出来的使得 <span class="arithmatex">\(r+z[r]\)</span> 最大的值（即以<span class="arithmatex">\(r\)</span>为开头的后缀的lcp右端点最后的点）</p>
+<p>如果 <span class="arithmatex">\(i\leq r+z[r]\)</span> ,那么就说明 <span class="arithmatex">\(s[i\sim n]\)</span> 的一段前缀与前面的 <span class="arithmatex">\(s[i-r\sim r+z[r]-r]\)</span> 相同（结合Z函数定义理解),这就可以说明出 <span class="arithmatex">\(z[i]\)</span> 的值就至少为 <span class="arithmatex">\(min(z[i-r],r+z[r]-i+1)\)</span> (注意这里是把<span class="arithmatex">\(s[i-r\sim r+z[r]-r]\)</span> 的z函数转移到了i)，然后 <span class="arithmatex">\(z[i]\)</span> 往后暴力扩展即可</p>
+<p>如果<span class="arithmatex">\(i&gt; r+z[r]\)</span>,直接使用朴素算法即可，暴力比较</p>
+<p>中间还要注意要根据<span class="arithmatex">\(r+z[r]\)</span>不断更新r值</p>
+<p>于是求Z函数的线性算法就出来了</p>
+<p>代码如下</p>
+<div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">z</span><span class="p">(){</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">l</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">r</span><span class="o">=</span><span class="mi">-1</span><span class="p">;</span><span class="c1">//注意r的初始值，理由是注意了刚开始的处理，其实是0也可以</span>
+<span class="w">    </span><span class="n">z</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="n">m</span><span class="p">;</span><span class="c1">//特殊处理 </span>
+<span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">m</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">i</span><span class="o">&lt;=</span><span class="n">r</span><span class="p">)</span><span class="w"> </span><span class="n">z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="n">min</span><span class="p">(</span><span class="n">z</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="n">l</span><span class="p">],</span><span class="n">r</span><span class="o">-</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">);</span><span class="c1">//分讨 </span>
+<span class="w">        </span><span class="k">while</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="n">z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">&lt;</span><span class="n">m</span><span class="o">&amp;&amp;</span><span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="n">z</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span><span class="o">==</span><span class="n">b</span><span class="p">[</span><span class="n">z</span><span class="p">[</span><span class="n">i</span><span class="p">]])</span><span class="w"> </span><span class="n">z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">++</span><span class="p">;</span><span class="c1">//朴素 </span>
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">r</span><span class="o">&lt;</span><span class="n">i</span><span class="o">+</span><span class="n">z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="mi">-1</span><span class="p">)</span><span class="w"> </span><span class="n">l</span><span class="o">=</span><span class="n">i</span><span class="p">,</span><span class="n">r</span><span class="o">=</span><span class="n">i</span><span class="o">+</span><span class="n">z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="mi">-1</span><span class="p">;</span><span class="c1">//更新 </span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>后缀树/数组/自动机等待续</p>
+<h2 id="6">6.最小表示法<a class="headerlink" href="#6" title="Permanent link">&para;</a></h2>
+<h2 id="7pam">7.PAM<a class="headerlink" href="#7pam" title="Permanent link">&para;</a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

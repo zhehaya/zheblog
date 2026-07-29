@@ -1,0 +1,2169 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../trick%E8%AE%B0%E5%BD%95/">
+      
+      
+        <link rel="next" href="../%E5%8F%8D%E6%80%9D10.15/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../image/头像.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>博弈论学习笔记 - zhehaya blog</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="zhehaya blog" class="md-header__button md-logo" aria-label="zhehaya blog" data-md-component="logo">
+      
+  <img src="../../image/头像.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            zhehaya blog
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              博弈论学习笔记
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  首页
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../10.14%E6%A8%A1%E6%8B%9F%E8%B5%9B%E6%80%BB%E7%BB%93/" class="md-tabs__link">
+          
+  
+  
+  OI笔记（杂
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/CF2244D/" class="md-tabs__link">
+          
+  
+  
+  算法竞赛
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="zhehaya blog" class="md-nav__button md-logo" aria-label="zhehaya blog" data-md-component="logo">
+      
+  <img src="../../image/头像.svg" alt="logo">
+
+    </a>
+    zhehaya blog
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OI笔记（杂
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    OI笔记（杂
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10.14%E6%A8%A1%E6%8B%9F%E8%B5%9B%E6%80%BB%E7%BB%93/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10.14模拟赛总结
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.22%E6%80%BB%E7%BB%93%26%E5%8F%8D%E6%80%9D/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.22总结&amp;反思
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.23%E6%80%BB%E7%BB%93%26%E5%8F%8D%E6%80%9D/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.23总结&反思
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.24%E6%80%BB%E7%BB%93%26%E5%8F%8D%E6%80%9D%28%E9%99%84%E5%8A%A0%E4%B9%8B%E5%90%8E%E8%AE%A1%E5%88%92/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    计划
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../8.6%E6%A8%A1%E6%8B%9F%E8%B5%9B%E6%80%BB%E7%BB%93/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8.6模拟赛总结
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../8.8%E8%B6%A3%E9%A2%98%E6%9D%82%E9%A2%98%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8.8趣题杂题学习笔记
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../NOI%202016%20%E5%BE%AA%E7%8E%AF%E4%B9%8B%E7%BE%8E/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    T574434 入穿入烂
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../P10977%E7%AC%94%E8%AE%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    P10977笔记
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../P7831%E8%AE%B0%E5%BD%95/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    P1781记录
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%5BAGC019F%5D%20Yes%20or%20No/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    [AGC019F] Yes or No
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../csps%E5%88%9D%E8%B5%9B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CSP-S初赛复习
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../trick%E8%AE%B0%E5%BD%95/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    trick记录
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    博弈论学习笔记
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    博弈论学习笔记
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#nim" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        nim游戏变种
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="nim游戏变种">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mnim" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        限制取m的nim游戏
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nim_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        阶梯NIM
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="阶梯NIM">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#p3480-poi2009-kam-pebbles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        P3480 [POI2009] KAM-Pebbles
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#shoi2008" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [SHOI2008] 小约翰的游戏
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sg" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SG函数及定理
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="SG函数及定理">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        图游戏：
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sg_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SG函数：
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sg_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SG定理：
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multi-sg" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Multi-SG游戏
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Multi-SG游戏">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#p3185-hnoi2007" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        P3185 [HNOI2007] 分裂游戏
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        树上的博弈
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="树上的博弈">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#p9133-thupc-2023" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        P9133 [THUPC 2023 初赛]大富翁
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#p4643" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        P4643 [国家集训队] 阿狸和桃子的游戏
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        启发
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%8F%8D%E6%80%9D10.15/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    反思10.15
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%9B%BD%E5%BA%86day1%E8%A1%A5%E9%A2%98/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    国庆day1补题
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%A4%B1%E6%84%8F/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    失意
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    字符串算法学习笔记
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%AE%B9%E6%96%A5%E5%92%8C%E5%8F%8D%E6%BC%94/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    容斥和反演
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%9C%9F%E6%9C%9B%E4%B8%8E%E6%A6%82%E7%8E%87%E8%AE%B0%E5%BD%95/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    期望与概率记录
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%9E%84%E9%80%A0%E9%A2%98%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    构造题学习笔记
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%9C%81%E9%80%89%E5%A4%87%E8%80%83%E8%AE%B0%E5%BD%95/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    省选备考记录（12月15号始
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    组合数学
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%BD%91%E7%BB%9C%E6%B5%81%E6%9D%82%E7%AC%94%E8%AE%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    网络流杂笔记
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%AF%A5%E6%B3%A8%E6%84%8F%E7%9A%84%E5%9F%BA%E7%A1%80/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    该注意的基础
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E9%A2%98%E7%9B%AE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    不一样的询问
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E9%A2%98%E7%9B%AE%E8%AE%B0%E5%BD%95%EF%BC%88%E5%B7%B2%E5%AE%8C%E7%BB%93/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    算法&amp;题目&amp;trick&amp;重要点记录（十月初始）（持续更新(已完结
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    算法竞赛
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    算法竞赛
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/CF2244D/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CF2244D
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/P1950/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    P1950
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/P4653/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    P4653
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/Raney/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Raney
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/%E5%85%B3%E4%BA%8E%E5%8D%95%E8%B0%83%E6%A0%88%E9%98%9F%E5%88%97/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    关于单调栈队列
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/%E5%8D%A1%E7%89%B9%E5%85%B0%E6%95%B0%E7%B1%BB%E4%BC%BC%E7%89%A9%E7%9A%84%E5%87%A0%E4%BD%95%E6%80%9D%E6%83%B3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    卡特兰数类似物的几何思想
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/%E5%B7%AE%E5%88%86/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    差分
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/%E5%BF%AB%E9%80%9F%E5%B9%82/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    快速幂
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/%E6%95%B0%E7%BB%84%E5%88%9D%E5%A7%8B%E5%8C%96/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数组初始化
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/%E6%9D%82/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    杂
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/%E6%A8%A1%E6%9D%BF/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ACM板子
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/%E7%BA%BF%E6%80%A7%E5%9F%BA%E5%A4%8D%E4%B9%A0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    线性基
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/%E9%80%86%E5%BA%8F%E5%AF%B9%E7%9A%84%E6%80%A7%E8%B4%A8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    逆序对
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/%E9%87%8D%E8%BD%BD%E8%BF%90%E7%AE%97%E7%AC%A6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    重载运算符
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#nim" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        nim游戏变种
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="nim游戏变种">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mnim" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        限制取m的nim游戏
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nim_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        阶梯NIM
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="阶梯NIM">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#p3480-poi2009-kam-pebbles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        P3480 [POI2009] KAM-Pebbles
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#shoi2008" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [SHOI2008] 小约翰的游戏
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sg" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SG函数及定理
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="SG函数及定理">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        图游戏：
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sg_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SG函数：
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sg_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SG定理：
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multi-sg" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Multi-SG游戏
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Multi-SG游戏">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#p3185-hnoi2007" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        P3185 [HNOI2007] 分裂游戏
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        树上的博弈
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="树上的博弈">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#p9133-thupc-2023" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        P9133 [THUPC 2023 初赛]大富翁
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#p4643" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        P4643 [国家集训队] 阿狸和桃子的游戏
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        启发
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="_1">博弈论学习笔记<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h2 id="nim">nim游戏变种<a class="headerlink" href="#nim" title="Permanent link">&para;</a></h2>
+<h3 id="mnim">限制取m的nim游戏<a class="headerlink" href="#mnim" title="Permanent link">&para;</a></h3>
+<p>即巴什游戏+nim游戏,求出每堆数目<span class="arithmatex">\(a_i mod(m+1)\)</span>的异或和,如果为0,则先手必败,反之先手必胜.</p>
+<p>我们仍可从P,N来分析.假设目前为先手必败的局面,先手不管拿多少个,都会使得<span class="arithmatex">\(a_i mod(m+1)\neq 0\)</span>(因为取的数目不能超过m;</p>
+<p>假设目前先手必胜的局面,只许选择一个减少使其余数和起它异或和变为0就可(可以证明绝对可行,进一步的,若是前面有人出招,只许在同一堆石子中挑出<span class="arithmatex">\(m+1-(上一个人挑走的石子数)\)</span>即可</p>
+<h3 id="nim_1">阶梯NIM<a class="headerlink" href="#nim_1" title="Permanent link">&para;</a></h3>
+<p>nim游戏的变形,两人轮流操作,每回至少从第<span class="arithmatex">\(i\)</span>的位置移动一个石子到<span class="arithmatex">\(i-1\)</span>位置,是谁先移动完谁胜利.</p>
+<p>我们先假设偶数位置不动,两人都只移动奇数位置,容易看出这其实就是一个在奇数位置的普通nim游戏.</p>
+<p>可是若是对手动了偶数位置的该咋办,我们只需把被增加的奇数位置增加的数目挑去即可(这样局势变回了动偶数位置前)</p>
+<p>但是若是奇数位置取完了咋办,对手只能取偶数位置,这样奇数位置就又多出来石子,我们只需继续跟上面一样挑出石子,这样下一轮对手还是只能挑出偶数位置的石子,坚持这样终将会让对手陷入只有最后一个位置(0处)有石子的处地,也就是没法选输了</p>
+<p>也就是说所有奇数位置石子数目的异或和不为0,先手必胜,反之必败</p>
+<h5 id="p3480-poi2009-kam-pebbles">P3480 [POI2009] KAM-Pebbles<a class="headerlink" href="#p3480-poi2009-kam-pebbles" title="Permanent link">&para;</a></h5>
+<p>nim游戏变种不过每回取之后必须单调递减,可以发现由于每堆数目都大于前一堆数目,所以后减前都为正数,不妨把这个差值作为一个新的nim游戏,发现每回取走石子刚好相当于前差值减一,后差值加一,便化为了上面的阶梯nim</p>
+<h2 id="shoi2008">[SHOI2008] 小约翰的游戏<a class="headerlink" href="#shoi2008" title="Permanent link">&para;</a></h2>
+<p>先手必胜当且仅当:</p>
+<ul>
+<li>
+<p>只有偶数个孤单堆</p>
+</li>
+<li>
+<p>SG值不为0，且有多于一个石子的充裕堆</p>
+</li>
+</ul>
+<p><a href="https://www.luogu.com.cn/article/nu5my6d9">在这看题解</a></p>
+<h2 id="sg">SG函数及定理<a class="headerlink" href="#sg" title="Permanent link">&para;</a></h2>
+<h3 id="_2">图游戏：<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<p>我们把游戏中各个状态都化为一个点，如果一个状态可以通过一次操作转化为下一个状态，那么就相当于连一个有向边，设最后的点为先手必败的状态，这样形成了一个DAG，其实现在这个游戏就可以转化为现在有俩绝顶聪明的人在轮流移动图上的一个棋子向下一个点，直到最后没法移动时便输了。</p>
+<h3 id="sg_1">SG函数：<a class="headerlink" href="#sg_1" title="Permanent link">&para;</a></h3>
+<p>设最后的汇点的sg值为0，然后其它的点的sg值是它能到达的所有点sg值的<span class="arithmatex">\(mex\)</span>值，当此点sg值为0，先手必败，反之先手必胜</p>
+<p>在有向图上推导sg值的代码例子：</p>
+<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">F</span><span class="p">[</span><span class="n">MAXN</span><span class="p">];</span><span class="c1">//可以转移的状态集合，一般题目会给出 </span>
+<span class="kt">int</span><span class="w"> </span><span class="n">S</span><span class="p">[</span><span class="n">MAXN</span><span class="p">];</span><span class="c1">//表示该点可以转移到的状态有哪些 </span>
+<span class="kt">int</span><span class="w"> </span><span class="n">SG</span><span class="p">[</span><span class="n">MAXN</span><span class="p">];</span><span class="c1">//该点的SG值 </span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">GetSG</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;=</span><span class="n">N</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="c1">//枚举DAG中所有点（也可以看作拓扑排序顺序）</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">memset</span><span class="p">(</span><span class="n">S</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="k">sizeof</span><span class="p">(</span><span class="n">S</span><span class="p">));</span><span class="c1">//初始化</span>
+<span class="w">        </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="n">j</span><span class="o">&lt;=</span><span class="n">limit</span><span class="o">&amp;&amp;</span><span class="n">F</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">&lt;=</span><span class="n">i</span><span class="p">;</span><span class="n">j</span><span class="o">++</span><span class="p">)</span><span class="c1">//limit表示转移的集合的大小</span>
+<span class="w">            </span><span class="n">S</span><span class="p">[</span><span class="n">SG</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="n">F</span><span class="p">[</span><span class="n">j</span><span class="p">]]]</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="w"> </span>
+<span class="w">        </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="o">=</span><span class="mi">1</span><span class="p">;;</span><span class="n">j</span><span class="o">++</span><span class="p">)</span>
+<span class="w">            </span><span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">S</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
+<span class="w">                </span><span class="p">{</span><span class="n">SG</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="n">i</span><span class="p">;</span><span class="k">break</span><span class="p">;}</span><span class="c1">//根据定义计算SG函数 </span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="sg_2">SG定理：<a class="headerlink" href="#sg_2" title="Permanent link">&para;</a></h3>
+<p>游戏的和的SG值是他们的SG值的xor值。</p>
+<p>这样我们便可以把一个游戏分解为多个子游戏，通过它们的sg值的异或和来判断是否正确。</p>
+<h3 id="multi-sg">Multi-SG游戏<a class="headerlink" href="#multi-sg" title="Permanent link">&para;</a></h3>
+<p>有时候一些博弈游戏会出现这种情况：一个点到达的状态点可以被分为多个子游戏，这样这个状态点的sg值由定理可得是它所有子游戏的sg值的<span class="arithmatex">\(mex\)</span>值。</p>
+<p>我们可以以例题为例</p>
+<h4 id="p3185-hnoi2007">P3185 [HNOI2007] 分裂游戏<a class="headerlink" href="#p3185-hnoi2007" title="Permanent link">&para;</a></h4>
+<p><strong>题意：</strong></p>
+<p>现在有两个人轮流从 <span class="arithmatex">\(n\)</span>瓶被标号为 <span class="arithmatex">\(0,1,...,n−1\)</span> 的巧克力豆中取豆子，第 <span class="arithmatex">\(i\)</span> 个瓶子中装有 <span class="arithmatex">\(p_i\)</span> 颗巧克力豆。每一轮每人选择 3个瓶子，标号为$ i,j,k$ 并要保证 <span class="arithmatex">\(i&lt;j,j≤k\)</span>且第 <span class="arithmatex">\(i\)</span>个瓶子中至少要有 1 颗豆子，随后这个人从第 <span class="arithmatex">\(i\)</span>个瓶子中拿走一颗豆子并在 <span class="arithmatex">\(j,k\)</span>中各放入一粒豆子，问先手是否有必胜策略，如果有则输出第一步操作中字典序最小的一组解和总方案数，没有则输出输出用一个空格两两隔开的三个 <span class="arithmatex">\(−1\)</span>。</p>
+<p><strong>题解:</strong></p>
+<p>具有典型的Multi-SG游戏的特征，我们不妨把每一个 <span class="arithmatex">\(i\)</span> 向所有可能的 <span class="arithmatex">\((j,k)\)</span> 连边，也就是说我们 <span class="arithmatex">\(mex\)</span> 上的是 <span class="arithmatex">\(sg(j)\oplus g(k)\)</span> ,然后我们的ans是子游戏的异或和，思考我们要寻找哪些子游戏？</p>
+<p>考虑如果是先手必败的情况，也就是说当前先手的 <span class="arithmatex">\(sg\)</span>  值为0,先手经过操作后，留给后手的 <span class="arithmatex">\(sg\)</span> 值绝对不为0，而后手为了让先手必败，就要维持之前的 <span class="arithmatex">\(sg\)</span> 值也就是0，这个时候，后手只需要模仿先手的操作，这样得到的sg值就能又回到0（可以手动模拟一下）。</p>
+<p>所以这是一个不断模仿的过程，也就是说一个瓶子会会被两个人相互取直到取完，考虑如果最后取得人和最先取的人不一样，这个子游戏便相当于输掉，<span class="arithmatex">\(sg\)</span>值为0，这个子游戏不用异或。</p>
+<p>进一步的说，偶数个巧克力豆的游戏不用异或，只需要异或奇数个巧克力豆的游戏。</p>
+<p>但是我们如果异或了偶数个的会发生什么？其实我们发现偶数个的 <span class="arithmatex">\(sg\)</span> 值实际上竟然在预处理中竟然不为 <span class="arithmatex">\(0\)</span>,这让我们大感诧异，仔细思考，这其实也是正常的，因为图上的<span class="arithmatex">\(sg\)</span>值并不是它本身的<span class="arithmatex">\(sg\)</span>值，只能代表联动之后的<span class="arithmatex">\(sg\)</span>值，因为是不断模仿出的牌，所以我们只需要考虑最后先后手变换，所以那些转化只能代表变换先后手的也就是说，对于奇数个，联动就刚好没影响的联动完，所以可以直接套用，偶数就不行了；</p>
+<p>额，那么拿到总游戏的 <span class="arithmatex">\(sg\)</span> 值后，在先手必胜的情况下，我们可以通过寻找可以使得<span class="arithmatex">\(sg\)</span> 值变为0的<span class="arithmatex">\(i,j,k\)</span>作为第一次选的。</p>
+<h2 id="_3">树上的博弈<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h3 id="p9133-thupc-2023">P9133 [THUPC 2023 初赛]大富翁<a class="headerlink" href="#p9133-thupc-2023" title="Permanent link">&para;</a></h3>
+<p>很牛的一道题，可以经过一系列式子的转化，可以把一个人选的点集集合所赚到的金币，转化为与另外一个人的选法无关的值：<span class="arithmatex">\(\sum_{a\in S} sz[a]-w[a]-dep[a]\)</span>。</p>
+<p>最后只需把点按点权<span class="arithmatex">\(sz[a]-w[a]-dep[a]\)</span>从大到小排序，然后两人依次取，最后两人各自的和便是各自的答案。</p>
+<p>推导式子可以参考官方题解：</p>
+<p><a href="https://www.luogu.com.cn/problem/solution/P9133">题解</a></p>
+<h3 id="p4643">P4643 [国家集训队] 阿狸和桃子的游戏<a class="headerlink" href="#p4643" title="Permanent link">&para;</a></h3>
+<p>懂了就是一道大水题（也不能这样说，因为有思维），考虑到我们要求出来的是差值，所以两边加上相同的值不会产生影响，而一个人的点集里贡献要算上点权和边权，不妨把每一条边的边权平摊给两个点的点权。</p>
+<p>这样一条边如果被分到一个点集里这一条边的贡献就会被加齐，如果分到不同点集中，因为平摊出去相同的值，所以相减得到的差会抵消掉这个影响。</p>
+<p>所以策略应当是平摊完之后对点权排序，依次取；</p>
+<h3 id="_4">启发<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p>发现两道树上博弈并没有考虑过程，而是通过推式子的方法，来得出最后答案应当有的形式来确定策略，思考树上博弈了话可以往这个方向来考虑。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
