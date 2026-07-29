@@ -8,6 +8,6 @@
 
 效果
 
-![blog效果](https://zheblog.netlify.app/](https://bee-reg-ab.imagency.cn/p/feed53f70b569eeedc332235e22b6b2f.png)
+![blog效果](https://bee-reg-ab.imagency.cn/p/feed53f70b569eeedc332235e22b6b2f.png)
 
 如果你喜欢请点一个star😘
