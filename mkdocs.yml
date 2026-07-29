@@ -1,6 +1,6 @@
 site_name: "zhehaya blog"       # 站点名称，显示于导航栏
-#site_url: "https://your-domain.com"  # 部署后的域名
-
+site_url: "https://zheblog.netlify.app/"  # 部署后的域名
+repo_url: "https://github.com/zhehaya/zheblog"
 theme:
   name: material          # 启用 Material 主题
   features:

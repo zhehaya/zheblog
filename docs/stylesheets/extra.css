@@ -22,6 +22,7 @@ button.md-top {
 /* 导航栏文字 */
 
 /* 纯玻璃质感 */
+.md-nav__source,
 .md-nav__title,
 .md-header,
 .md-tabs {
@@ -31,7 +32,6 @@ button.md-top {
     text-align:center;
     font-size:40px;
 }
-
 
 /* 两列布局 */
 #timeline {
