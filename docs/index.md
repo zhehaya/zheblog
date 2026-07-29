@@ -7,18 +7,9 @@ hide:
 
 # comments: true
 ---
-
-
-<!-- OneClip 公告栏 -->
-
-<!-- 公告栏关闭功能脚本 -->
-
-
-<!-- 加载 Inter 字体 - 使用 font-display: swap 优化加载性能 -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@900&display=swap" rel="stylesheet">
-
 <div class="wcowin-header-row">
   <!-- 左侧：文字内容 -->
   <div class="wcowin-header-text">
@@ -61,13 +52,40 @@ hide:
   </div>
 </div>
 
-<!-- 移动端显示的标语 -->
+<div class="mobile-avatar">
+  <img src="https://bee-reg-ab.imagency.cn/p/cacdec1495a83ced9798efcdd6807473.jpg"
+       alt="头像"
+       loading="lazy">
+</div>
 <div class="mobile-motto">
+
   <h1>zhehaya</h1>
+  懵懂大一
+
 </div>
 
 <style>
 /* ====== 布局主容器 ====== */
+.mobile-avatar {
+  display: none;
+  text-align: center;
+  margin: 0 auto 12px;
+}
+
+.mobile-avatar img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid rgba(255, 255, 255, 0.85);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+@media (max-width: 700px) {
+  .mobile-avatar {
+    display: block;
+  }
+}
 .wcowin-header-row {
   display: flex;
   align-items: center;
@@ -527,7 +545,7 @@ hide:
   const phrasesData = {
     chinese_simplified: [
       "懵懂大一",
-      "失败的oier",
+      "OI afoer",
       "刚开始的acmer"
     ],
     english: [
@@ -1175,7 +1193,7 @@ hr {
 
     ---
 
-    - **09.18** 🎯 CSP-J 第一次初赛
+    - **09.18** CSP-J 第一次初赛
 
     - 复赛因疫情取消
 
@@ -1184,17 +1202,17 @@ hr {
 
     ---
 
-    - **09.16** 📘 CSP-S 第一次初赛  
+    - **09.16** CSP-S 第一次初赛  
       61 pts
 
-    - **09.26** 🔥 AC 200
+    - **09.26** AC 200
 
-    - **10.21** 🏹 CSP-S 第一次复赛  
+    - **10.21** CSP-S 第一次复赛  
       135 pts
 
-    - **11.12** 💜 首紫题 P9837
+    - **11.12** 洛谷首紫题 P9837
 
-    - **11.18** ⚔️ NOIP  
+    - **11.18** NOIP  
       擦线 1=
 
 
@@ -1202,17 +1220,17 @@ hr {
 
     ---
 
-    - **04.28** 🚩 AC 300
+    - **04.28** AC 300
 
-    - **06.03** 🔴 Luogu 红名
+    - **06.03** Luogu 红名
 
-    - **08.01** ⚫ 首黑
+    - **08.01** 洛谷首黑
 
-    - **08.14** 📝 建立博客
+    - **08.14** 建立旧博客
 
-    - **10.26** 📉 CSP-S 比较寄
+    - **10.26** CSP-S 比较寄
 
-    - **12.30** 🏹 NOIP  
+    - **12.30** NOIP  
       160 pts，1=
 
 
@@ -1230,7 +1248,7 @@ hr {
 
     - **06** 高考结束
 
-    - 🚀 开始向 ACM 进发
+    - **07** 开始向 ACM 进发
 </div>
 ##目前文章
 <div class="grid cards" markdown>
@@ -1248,9 +1266,9 @@ hr {
 
     ---
 
-    - [高中的算法笔记](OI笔记（杂/题目记录（已完结.md)
+    - [高中的算法笔记](OI笔记/index.md)
 
-    - [复健的算法笔记](算法竞赛/卡特兰数类似物的几何思想.md)
+    - [复健的算法笔记](算法竞赛/index.md)
 
 </div>
 
