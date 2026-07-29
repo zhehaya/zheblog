@@ -8,6 +8,6 @@
 
 效果
 
-![blog效果](https://bee-reg-ab.imagency.cn/p/feed53f70b569eeedc332235e22b6b2f.png)
+![blog效果](https://bee-reg-ab.imagency.cn/p/da8c70dca847e38d5fb84aa153624235.png)
 
 如果你喜欢请点一个star😘
