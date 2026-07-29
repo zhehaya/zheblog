@@ -658,7 +658,7 @@ hr {
 }
 </style>
 
----
+
 
 <div id="greeting" class="greeting-container">
   <span id="greeting-text" class="greeting-text">🐈</span>
@@ -755,10 +755,9 @@ hr {
   })();
 </script>
 
----
 
 
-***
+
 
 
 <!-- GitHub Contribution Heatmap Card -->
