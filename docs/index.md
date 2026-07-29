@@ -1193,27 +1193,22 @@ hr {
 
     ---
 
-    - **09.18** CSP-J 第一次初赛
-
-    - 复赛因疫情取消
+    - **09.18** CSP-J 第一次初赛,复赛因疫情取消
 
 
 - :material-calendar-star:{ .lg .middle } __2023 高一上__
 
     ---
 
-    - **09.16** CSP-S 第一次初赛  
-      61 pts
+    - **09.16** CSP-S 第一次初赛 61pts
 
     - **09.26** AC 200
 
-    - **10.21** CSP-S 第一次复赛  
-      135 pts
+    - **10.21** CSP-S 第一次复赛 135pts
 
     - **11.12** 洛谷首紫题 P9837
 
-    - **11.18** NOIP  
-      擦线 1=
+    - **11.18** NOIP 擦线 1=
 
 
 - :material-calendar-star:{ .lg .middle } __2024 高一下-高二上__
@@ -1230,17 +1225,14 @@ hr {
 
     - **10.26** CSP-S 比较寄
 
-    - **12.30** NOIP  
-      160 pts，1=
+    - **12.30** NOIP 160pts,1=
 
 
 - :material-calendar-star:{ .lg .middle } __2025 高二下__
 
     ---
 
-    - **03** 💔 省选失利
-
-    - OI 生涯结束
+    - **03** 💔 省选失利, OI 生涯结束
 
 - :material-calendar-star:{ .lg .middle } __2026 高三__
 
@@ -1249,6 +1241,7 @@ hr {
     - **06** 高考结束
 
     - **07** 开始向 ACM 进发
+    - **07.29** 建立新博客
 </div>
 ##目前文章
 <div class="grid cards" markdown>
@@ -1287,8 +1280,8 @@ hr {
 - [ ] 社交卡片丰富
 
 - [ ] 友链等功能
-[^Knowing-that-loving-you-has-no-ending]:莫问前路，只需前进
-[^see-how-much-I-love-you]:mkdocs开发
+[^Move forward]:莫问前路，只需前进
+[^by mkdocs]:mkdocs开发
 
 
 
