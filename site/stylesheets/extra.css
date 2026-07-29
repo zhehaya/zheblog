@@ -22,6 +22,7 @@ button.md-top {
 /* 导航栏文字 */
 
 /* 纯玻璃质感 */
+.md-nav__title,
 .md-header,
 .md-tabs {
     background: #0000005e !important;
