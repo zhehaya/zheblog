@@ -1188,15 +1188,13 @@ hr {
   })();
 </script>
 !!!使用说明
-      1.手机端点击左上角“三横杠”可以查看导航栏(电脑端浏览器缩小时同样适用)。
+      1.导航栏不直接显示时点击左上角 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" t="1785390058455" class="icon" viewBox="0 0 1228 1024" version="1.1" p-id="5803" width="12" ><path d="M1228.8 0H0v204.8h1228.8V0z m0 409.6H0v204.8h1228.8V409.6z m0 409.6H0v204.8h1228.8V819.2z" p-id="5804" fill="#ffffff"/></svg> 可以查看导航栏。
       <br>
-      2.右上角点击🔍可以搜索文章
+      2.右上角点击🔍，在搜索框中输入内容可以搜索文章。
       <br>
-      3.这里既是博客，也是个人笔记系统
+      3.基于mkdocs开发，这里既是博客，也是个人笔记系统。
       <br>
-      5.使用出现问题，请在导航栏处找到github地址，在issues中提出问题，谢谢
-      <br>
-      4.如果喜欢我的博客设计，也请于github中点一个免费的star吧😘
+      4.<a href="https://github.com/zhehaya/zheblog">此项目的github仓库</a>，可于其issues板块提出问题和意见。
       
 ##目前文章
 <div class="grid cards" markdown>
