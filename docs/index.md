@@ -1197,7 +1197,28 @@ hr {
       5.使用出现问题，请在导航栏处找到github地址，在issues中提出问题，谢谢
       <br>
       4.如果喜欢我的博客设计，也请于github中点一个免费的star吧😘
+      
+##目前文章
+<div class="grid cards" markdown>
 
+- :octicons-bookmark-16:{ .lg .middle } __杂记/心记__
+
+    ---
+
+    - 未迁移
+
+    - 待探索
+
+
+- :octicons-bookmark-16:{ .lg .middle } __算法笔记__
+
+    ---
+
+    - [高中的算法笔记](OI笔记/index.md)
+
+    - [复健的算法笔记](算法竞赛/index.md)
+
+</div>
 ##大事祭
 <div class="grid cards" markdown>
 
@@ -1255,27 +1276,7 @@ hr {
     - **07** 开始向 ACM 进发
     - **07.29** 建立新博客
 </div>
-##目前文章
-<div class="grid cards" markdown>
 
-- :octicons-bookmark-16:{ .lg .middle } __杂记/心记__
-
-    ---
-
-    - 未迁移
-
-    - 待探索
-
-
-- :octicons-bookmark-16:{ .lg .middle } __算法笔记__
-
-    ---
-
-    - [高中的算法笔记](OI笔记/index.md)
-
-    - [复健的算法笔记](算法竞赛/index.md)
-
-</div>
 
 
 
