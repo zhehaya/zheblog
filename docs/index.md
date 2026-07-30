@@ -58,10 +58,8 @@ hide:
        loading="lazy">
 </div>
 <div class="mobile-motto">
-
   <h1>zhehaya</h1>
   懵懂大一
-
 </div>
 
 <style>
