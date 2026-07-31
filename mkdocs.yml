@@ -11,7 +11,9 @@ theme:
   language: zh
   logo: image/头像.svg
   favicon: image/头像.svg
-  
+plugins:
+  - search
+  - awesome-pages
 
 extra_css:
   - stylesheets/extra.css

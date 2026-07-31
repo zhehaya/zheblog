@@ -1212,7 +1212,7 @@ hr {
 
     - [高中的算法笔记](OI笔记/index.md)
 
-    - [复健的算法笔记](算法竞赛/index.md)
+    - [复健的算法笔记](algorithm-competition/index.md)
 
 </div>
 ##大事祭
