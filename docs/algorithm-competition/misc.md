@@ -1,3 +1,7 @@
+---
+description: "Tarjan 求LCA，欧拉序求LCA，二分，欧拉回路，半欧拉图的欧拉路径，关于单调栈和单调队列，差分"
+---
+
 # 杂记
 
 ### Tarjan 求LCA
