@@ -9,8 +9,8 @@ theme:
   palette:
     - scheme: slate
   language: zh
-  logo: image/头像.svg
-  favicon: image/头像.svg
+  logo: image/头像.png
+  favicon: image/头像.png
   
 
 extra_css:
