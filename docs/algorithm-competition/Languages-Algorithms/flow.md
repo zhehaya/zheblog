@@ -31,6 +31,6 @@ $s$和$t$的最小割等于$s$和$t$的最大流
 
 具体来说
 
-![屏幕截图 2026-08-05 111150](D:\zhehaya blog\zheblog\docs\image\屏幕截图 2026-08-05 111150.png)
+![屏幕截图 2026-08-05 111150](https://bee-reg-ab.imagency.cn/p/a3eb0e1a6c7d53f83b144ba02dbeab0c.png)
 
 美妙字体（）
