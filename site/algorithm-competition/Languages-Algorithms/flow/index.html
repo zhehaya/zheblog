@@ -8,31 +8,31 @@
       
       
       
-        <link rel="canonical" href="https://zhehaya.cloud/OI%E7%AC%94%E8%AE%B0/%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6/">
+        <link rel="canonical" href="https://zhehaya.cloud/algorithm-competition/Languages-Algorithms/flow/">
       
       
-        <link rel="prev" href="../%E7%9C%81%E9%80%89%E5%A4%87%E8%80%83%E8%AE%B0%E5%BD%95/">
+        <link rel="prev" href="../catalan-ideas/">
       
       
-        <link rel="next" href="../%E7%BD%91%E7%BB%9C%E6%B5%81%E6%9D%82%E7%AC%94%E8%AE%B0/">
+        <link rel="next" href="../inversion-properties/">
       
       
         
       
       
-      <link rel="icon" href="../../image/头像.svg">
+      <link rel="icon" href="../../../image/头像.svg">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
-        <title>组合数学 - zhehaya blog</title>
+        <title>网络流杂记 - zhehaya blog</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -51,11 +51,11 @@
       
     
     
-      <link rel="stylesheet" href="../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
     
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -94,9 +94,9 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href="../.." title="zhehaya blog" class="md-header__button md-logo" aria-label="zhehaya blog" data-md-component="logo">
+    <a href="../../.." title="zhehaya blog" class="md-header__button md-logo" aria-label="zhehaya blog" data-md-component="logo">
       
-  <img src="../../image/头像.svg" alt="logo">
+  <img src="../../../image/头像.svg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              组合数学
+              网络流杂记
             
           </span>
         </div>
@@ -210,7 +210,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../.." class="md-tabs__link">
+      <a href="../../.." class="md-tabs__link">
         
   
   
@@ -227,13 +227,11 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../../OI%E7%AC%94%E8%AE%B0/" class="md-tabs__link">
           
   
   
@@ -249,11 +247,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../algorithm-competition/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../" class="md-tabs__link">
           
   
   
@@ -287,9 +287,9 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="zhehaya blog" class="md-nav__button md-logo" aria-label="zhehaya blog" data-md-component="logo">
+    <a href="../../.." title="zhehaya blog" class="md-nav__button md-logo" aria-label="zhehaya blog" data-md-component="logo">
       
-  <img src="../../image/头像.svg" alt="logo">
+  <img src="../../../image/头像.svg" alt="logo">
 
     </a>
     zhehaya blog
@@ -316,7 +316,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         
   
   
@@ -332,6 +332,793 @@
   
 
       </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OI笔记
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    OI笔记
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../OI%E7%AC%94%E8%AE%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OI笔记
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../OI%E7%AC%94%E8%AE%B0/10.14%E6%A8%A1%E6%8B%9F%E8%B5%9B%E6%80%BB%E7%BB%93/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10.14模拟赛总结
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../OI%E7%AC%94%E8%AE%B0/2.22%E6%80%BB%E7%BB%93%26%E5%8F%8D%E6%80%9D/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.22总结&amp;反思
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../OI%E7%AC%94%E8%AE%B0/2.23%E6%80%BB%E7%BB%93%26%E5%8F%8D%E6%80%9D/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.23总结&反思
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../OI%E7%AC%94%E8%AE%B0/2.24%E6%80%BB%E7%BB%93%26%E5%8F%8D%E6%80%9D%28%E9%99%84%E5%8A%A0%E4%B9%8B%E5%90%8E%E8%AE%A1%E5%88%92/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.24总结&反思(附加之后计划
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../OI%E7%AC%94%E8%AE%B0/8.6%E6%A8%A1%E6%8B%9F%E8%B5%9B%E6%80%BB%E7%BB%93/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8.6模拟赛总结
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../OI%E7%AC%94%E8%AE%B0/8.8%E8%B6%A3%E9%A2%98%E6%9D%82%E9%A2%98%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8.8趣题杂题学习笔记
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../OI%E7%AC%94%E8%AE%B0/NOI%202016%20%E5%BE%AA%E7%8E%AF%E4%B9%8B%E7%BE%8E/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    T574434 入穿入烂
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../OI%E7%AC%94%E8%AE%B0/P10977%E7%AC%94%E8%AE%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    P10977笔记
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../OI%E7%AC%94%E8%AE%B0/P7831%E8%AE%B0%E5%BD%95/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    P1781记录
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../OI%E7%AC%94%E8%AE%B0/%5BAGC019F%5D%20Yes%20or%20No/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    [AGC019F] Yes or No
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../OI%E7%AC%94%E8%AE%B0/csps%E5%88%9D%E8%B5%9B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CSP-S初赛复习
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../OI%E7%AC%94%E8%AE%B0/trick%E8%AE%B0%E5%BD%95/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    trick记录
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../OI%E7%AC%94%E8%AE%B0/%E5%8D%9A%E5%BC%88%E8%AE%BA%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    博弈论学习笔记
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../OI%E7%AC%94%E8%AE%B0/%E5%8F%8D%E6%80%9D10.15/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    反思10.15
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../OI%E7%AC%94%E8%AE%B0/%E5%9B%BD%E5%BA%86day1%E8%A1%A5%E9%A2%98/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    国庆day1补题
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../OI%E7%AC%94%E8%AE%B0/%E5%A4%B1%E6%84%8F/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    失意
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../OI%E7%AC%94%E8%AE%B0/%E5%AE%B9%E6%96%A5%E5%92%8C%E5%8F%8D%E6%BC%94/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    容斥和反演
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../OI%E7%AC%94%E8%AE%B0/%E6%9C%9F%E6%9C%9B%E4%B8%8E%E6%A6%82%E7%8E%87%E8%AE%B0%E5%BD%95/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    期望与概率记录
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../OI%E7%AC%94%E8%AE%B0/%E6%9E%84%E9%80%A0%E9%A2%98%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    构造题学习笔记
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../OI%E7%AC%94%E8%AE%B0/%E7%9C%81%E9%80%89%E5%A4%87%E8%80%83%E8%AE%B0%E5%BD%95/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    省选备考记录（12月15号始
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../OI%E7%AC%94%E8%AE%B0/%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    组合数学
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../OI%E7%AC%94%E8%AE%B0/%E7%BD%91%E7%BB%9C%E6%B5%81%E6%9D%82%E7%AC%94%E8%AE%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    网络流杂笔记
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../OI%E7%AC%94%E8%AE%B0/%E8%AF%A5%E6%B3%A8%E6%84%8F%E7%9A%84%E5%9F%BA%E7%A1%80/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    该注意的基础
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../OI%E7%AC%94%E8%AE%B0/%E9%A2%98%E7%9B%AE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    不一样的询问
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../OI%E7%AC%94%E8%AE%B0/%E9%A2%98%E7%9B%AE%E8%AE%B0%E5%BD%95%EF%BC%88%E5%B7%B2%E5%AE%8C%E7%BB%93/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    算法&amp;题目&amp;trick&amp;重要点记录（十月初始）（持续更新(已完结
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -361,17 +1148,17 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
             
   
   
   <span class="md-ellipsis">
     
   
-    OI笔记
+    算法竞赛
   
 
     
@@ -382,12 +1169,12 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_2">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             
   
-    OI笔记
+    算法竞赛
   
 
           </label>
@@ -400,14 +1187,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../" class="md-nav__link">
+      <a href="../../" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    OI笔记
+    算法竞赛
   
 
     
@@ -428,14 +1215,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../10.14%E6%A8%A1%E6%8B%9F%E8%B5%9B%E6%80%BB%E7%BB%93/" class="md-nav__link">
+      <a href="../../misc/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    10.14模拟赛总结
+    杂记
   
 
     
@@ -456,14 +1243,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../2.22%E6%80%BB%E7%BB%93%26%E5%8F%8D%E6%80%9D/" class="md-nav__link">
+      <a href="../../template/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    2.22总结&amp;反思
+    ACM板子
   
 
     
@@ -481,17 +1268,38 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../2.23%E6%80%BB%E7%BB%93%26%E5%8F%8D%E6%80%9D/" class="md-nav__link">
+  
+    
+    
+    
+    
+      
+      
         
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="">
+            
   
   
   <span class="md-ellipsis">
     
   
-    2.23总结&反思
+    语言-算法理解
   
 
     
@@ -499,11 +1307,19 @@
   
   
 
-      </a>
-    </li>
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    语言-算法理解
   
 
-              
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
             
               
                 
@@ -512,462 +1328,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../2.24%E6%80%BB%E7%BB%93%26%E5%8F%8D%E6%80%9D%28%E9%99%84%E5%8A%A0%E4%B9%8B%E5%90%8E%E8%AE%A1%E5%88%92/" class="md-nav__link">
+      <a href="../catalan-ideas/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    2.24总结&反思(附加之后计划
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../8.6%E6%A8%A1%E6%8B%9F%E8%B5%9B%E6%80%BB%E7%BB%93/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    8.6模拟赛总结
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../8.8%E8%B6%A3%E9%A2%98%E6%9D%82%E9%A2%98%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    8.8趣题杂题学习笔记
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../NOI%202016%20%E5%BE%AA%E7%8E%AF%E4%B9%8B%E7%BE%8E/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    T574434 入穿入烂
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../P10977%E7%AC%94%E8%AE%B0/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    P10977笔记
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../P7831%E8%AE%B0%E5%BD%95/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    P1781记录
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../%5BAGC019F%5D%20Yes%20or%20No/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    [AGC019F] Yes or No
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../csps%E5%88%9D%E8%B5%9B/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    CSP-S初赛复习
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../trick%E8%AE%B0%E5%BD%95/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    trick记录
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../%E5%8D%9A%E5%BC%88%E8%AE%BA%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    博弈论学习笔记
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../%E5%8F%8D%E6%80%9D10.15/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    反思10.15
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../%E5%9B%BD%E5%BA%86day1%E8%A1%A5%E9%A2%98/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    国庆day1补题
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../%E5%A4%B1%E6%84%8F/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    失意
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../%E5%AE%B9%E6%96%A5%E5%92%8C%E5%8F%8D%E6%BC%94/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    容斥和反演
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../%E6%9C%9F%E6%9C%9B%E4%B8%8E%E6%A6%82%E7%8E%87%E8%AE%B0%E5%BD%95/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    期望与概率记录
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../%E6%9E%84%E9%80%A0%E9%A2%98%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    构造题学习笔记
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../%E7%9C%81%E9%80%89%E5%A4%87%E8%80%83%E8%AE%B0%E5%BD%95/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    省选备考记录（12月15号始
+    卡特兰数类似物的几何思想
   
 
     
@@ -1004,7 +1372,7 @@
   <span class="md-ellipsis">
     
   
-    组合数学
+    网络流杂记
   
 
     
@@ -1022,7 +1390,7 @@
   <span class="md-ellipsis">
     
   
-    组合数学
+    网络流杂记
   
 
     
@@ -1048,10 +1416,21 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#dinic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dinic算法理解
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        插板
+        杂记：二分图的小性质
       
     </span>
   </a>
@@ -1062,27 +1441,21 @@
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        卡特兰数
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="卡特兰数">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        折线法小扩展：
+        最大流最小割定理
       
     </span>
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        费用流
+      
+    </span>
+  </a>
   
 </li>
       
@@ -1090,7 +1463,7 @@
   <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       
-        拉格朗日差值
+        反边本质
       
     </span>
   </a>
@@ -1113,370 +1486,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../%E7%BD%91%E7%BB%9C%E6%B5%81%E6%9D%82%E7%AC%94%E8%AE%B0/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    网络流杂笔记
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../%E8%AF%A5%E6%B3%A8%E6%84%8F%E7%9A%84%E5%9F%BA%E7%A1%80/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    该注意的基础
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../%E9%A2%98%E7%9B%AE/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    不一样的询问
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../%E9%A2%98%E7%9B%AE%E8%AE%B0%E5%BD%95%EF%BC%88%E5%B7%B2%E5%AE%8C%E7%BB%93/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    算法&amp;题目&amp;trick&amp;重要点记录（十月初始）（持续更新(已完结
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
-        
-          
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    算法竞赛
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    算法竞赛
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../algorithm-competition/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    算法竞赛
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../algorithm-competition/misc/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    杂记
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../algorithm-competition/template/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    ACM板子
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
-        
-          
-          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    语言-算法理解
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_4">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    语言-算法理解
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../algorithm-competition/Languages-Algorithms/catalan-ideas/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    卡特兰数类似物的几何思想
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../algorithm-competition/Languages-Algorithms/flow/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    网络流杂记
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../algorithm-competition/Languages-Algorithms/inversion-properties/" class="md-nav__link">
+      <a href="../inversion-properties/" class="md-nav__link">
         
   
   
@@ -1504,7 +1514,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../algorithm-competition/Languages-Algorithms/linear-basis/" class="md-nav__link">
+      <a href="../linear-basis/" class="md-nav__link">
         
   
   
@@ -1532,7 +1542,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../algorithm-competition/Languages-Algorithms/shortest-paths-spanning-trees/" class="md-nav__link">
+      <a href="../shortest-paths-spanning-trees/" class="md-nav__link">
         
   
   
@@ -1560,7 +1570,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../algorithm-competition/Languages-Algorithms/string/" class="md-nav__link">
+      <a href="../string/" class="md-nav__link">
         
   
   
@@ -1588,7 +1598,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../algorithm-competition/Languages-Algorithms/%E7%A4%BA%E4%BE%8B/" class="md-nav__link">
+      <a href="../%E7%A4%BA%E4%BE%8B/" class="md-nav__link">
         
   
   
@@ -1616,7 +1626,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../algorithm-competition/Languages-Algorithms/%E9%87%8D%E8%BD%BD%E8%BF%90%E7%AE%97%E7%AC%A6/" class="md-nav__link">
+      <a href="../%E9%87%8D%E8%BD%BD%E8%BF%90%E7%AE%97%E7%AC%A6/" class="md-nav__link">
         
   
   
@@ -1658,17 +1668,20 @@
       
       
         
+          
+          
+        
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" >
         
           
-          <label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="">
             
   
   
@@ -1704,7 +1717,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../algorithm-competition/problem/CF2244D/" class="md-nav__link">
+      <a href="../../problem/CF2244D/" class="md-nav__link">
         
   
   
@@ -1732,7 +1745,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../algorithm-competition/problem/P1950/" class="md-nav__link">
+      <a href="../../problem/P1950/" class="md-nav__link">
         
   
   
@@ -1760,7 +1773,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../algorithm-competition/problem/P4653/" class="md-nav__link">
+      <a href="../../problem/P4653/" class="md-nav__link">
         
   
   
@@ -1823,10 +1836,21 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#dinic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dinic算法理解
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        插板
+        杂记：二分图的小性质
       
     </span>
   </a>
@@ -1837,27 +1861,21 @@
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        卡特兰数
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="卡特兰数">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        折线法小扩展：
+        最大流最小割定理
       
     </span>
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        费用流
+      
+    </span>
+  </a>
   
 </li>
       
@@ -1865,7 +1883,7 @@
   <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       
-        拉格朗日差值
+        反边本质
       
     </span>
   </a>
@@ -1892,28 +1910,29 @@
   
 
 
-<h1 id="_1">组合数学<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<h2 id="_2">插板<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>对于不定方程<span class="arithmatex">\(x_1+x_2+....+x_n=M\)</span>解的个数用隔板法可解决：</p>
-<p>利用统一加解决<span class="arithmatex">\(x_i\ge k\)</span>的问题。</p>
-<p>利用容斥解决<span class="arithmatex">\(x_i\le k\)</span>的问题。</p>
-<p>若条件为<span class="arithmatex">\(max\enspace x_i=k\)</span>，则可以化为<span class="arithmatex">\(x_i\le k\)</span>的个数减去<span class="arithmatex">\(x_i\le k-1\)</span>的个数。</p>
-<h2 id="_3">卡特兰数<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<p>对于长度为<span class="arithmatex">\(2n\)</span>的合法括号序列为多少？</p>
-<p>可以化为在每一个前缀中，左括号数目永远大于右括号数目，最终左括号数目等于又括号数目。</p>
-<p>化到二维平面上，即从<span class="arithmatex">\((0,0)\)</span>走到<span class="arithmatex">\((n,n)\)</span>路径不触碰（注意是不触碰，而不是碰到）<span class="arithmatex">\(y=x+1\)</span>：</p>
-<p><img alt="image-20250127233621856" src="C:\Users\huang\AppData\Roaming\Typora\typora-user-images\image-20250127233621856.png" /></p>
-<p>考虑单步容斥，计算所有不合法路径总数。</p>
-<p>考虑不合法的路径从第一次跟这个直线相交到末尾到<span class="arithmatex">\((n,n)\)</span>的路线全部翻折。</p>
-<p>每个不合法的路径都可对应一个到<span class="arithmatex">\((n-1,n+1)\)</span>的路径。</p>
-<p>而所有到<span class="arithmatex">\((n-1,n+1)\)</span>的路径一定与这个直线相交，都可反过来转化成不合法的路径。</p>
-<p>成一一对应的关系，所以不合法的方案总数等于从<span class="arithmatex">\((0,0)\)</span>到<span class="arithmatex">\((n-1,n+1)\)</span>的方案总数，为<span class="arithmatex">\(C(2n,n-1)\)</span>。</p>
-<p>所以<span class="arithmatex">\(Catalan(n)=C(2n,n)-C(2n,n-1)\)</span>。</p>
-<p><strong>P1641</strong>:一样的分析方法，答案为<span class="arithmatex">\(C(n+m,n)-C(n+m,m-1)\)</span></p>
-<h3 id="_4">折线法小扩展：<img alt="image-20250128002145282" src="C:\Users\huang\AppData\Roaming\Typora\typora-user-images\image-20250128002145282.png" /><a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
-<p><img alt="image-20250128002234571" src="C:\Users\huang\AppData\Roaming\Typora\typora-user-images\image-20250128002234571.png" /></p>
-<p><img alt="image-20250128002307565" src="C:\Users\huang\AppData\Roaming\Typora\typora-user-images\image-20250128002307565.png" /></p>
-<h2 id="_5">拉格朗日差值<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<h1 id="_1">网络流杂记<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h2 id="dinic">Dinic算法理解<a class="headerlink" href="#dinic" title="Permanent link">&para;</a></h2>
+<ul>
+<li>第一次dfs找到有可能还有流量的边并且分层</li>
+<li>每一次dfs到<span class="arithmatex">\(t\)</span>代表的是一条增广路被找到。</li>
+<li>回溯途中所有的点以及反向流量都得到改变，对于每一条增广路来说都减去一个固定的值。</li>
+<li>从汇点到源点的按照dfs回溯过程依次将贡献合并，每个边在对应得dfs回溯过程中减去相应的值，而减去总值在回溯过程中又可以不断累加，直到回到源点，每个dfs返回的是这个点累加的总流量。</li>
+<li>当前弧优化：当我们从一个边走出后这个边后面的资源已经耗尽了很多了，不如这次就不走这个边了，也就是说在一个dfs中每个边只经历一次，可以使用一个<code>now</code>数组代表当前到哪个边了。</li>
+<li>反向边如果是顺序存储的，可以用奇偶探边法</li>
+</ul>
+<h2 id="_2">杂记：二分图的小性质<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>必须边：不属强连通分量，已经属于匹配</p>
+<p>可行边：属于强连通分量，不属于匹配</p>
+<p>对于非完备匹配只能用最大流剩余流量1流的方向建图即可。</p>
+<h2 id="_3">最大流最小割定理<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p><span class="arithmatex">\(s\)</span>和<span class="arithmatex">\(t\)</span>的最小割等于<span class="arithmatex">\(s\)</span>和<span class="arithmatex">\(t\)</span>的最大流</p>
+<h2 id="_4">费用流<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>适用EK，刚开始SPFA找到残留网络上一条<span class="arithmatex">\(s-&gt;t\)</span>的最短路(记录路径)，后在这条记录路径上处理就好。</p>
+<h2 id="_5">反边本质<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<p>反悔，但这个反悔很妙，让我自己发明是发明不出来的。</p>
+<p>具体来说</p>
+<p><img alt="屏幕截图 2026-08-05 111150" src="D:\zhehaya blog\zheblog\docs\image\屏幕截图 2026-08-05 111150.png" /></p>
+<p>美妙字体（）</p>
 
 
 
@@ -1963,10 +1982,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.sections"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

@@ -14,7 +14,7 @@
         <link rel="prev" href="../linear-basis/">
       
       
-        <link rel="next" href="../%E9%87%8D%E8%BD%BD%E8%BF%90%E7%AE%97%E7%AC%A6/">
+        <link rel="next" href="../string/">
       
       
         
@@ -25,7 +25,7 @@
     
     
       
-        <title>最短路和生成树的一些思考 - zhehaya blog</title>
+        <title>最短路和生成树算法的证明 - zhehaya blog</title>
       
     
     
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              最短路和生成树的一些思考
+              最短路和生成树算法的证明
             
           </span>
         </div>
@@ -871,34 +871,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../OI%E7%AC%94%E8%AE%B0/%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    字符串算法学习笔记
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../../OI%E7%AC%94%E8%AE%B0/%E5%AE%B9%E6%96%A5%E5%92%8C%E5%8F%8D%E6%BC%94/" class="md-nav__link">
         
   
@@ -1384,6 +1356,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../flow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    网络流杂记
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../inversion-properties/" class="md-nav__link">
         
   
@@ -1456,7 +1456,7 @@
   <span class="md-ellipsis">
     
   
-    最短路和生成树的一些思考
+    最短路和生成树算法的证明
   
 
     
@@ -1474,7 +1474,7 @@
   <span class="md-ellipsis">
     
   
-    最短路和生成树的一些思考
+    最短路和生成树算法的证明
   
 
     
@@ -1500,13 +1500,80 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#dijkstra" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Dijkstra正确性
+        最短路
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="最短路">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dijkstra" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dijkstra
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bellman-fordspfa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bellman-Ford和SPFA
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        生成树
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="生成树">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prim" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prim
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kruskal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        kruskal
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1514,6 +1581,62 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../string/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    字符串算法学习笔记
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%A4%BA%E4%BE%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    示例
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -1736,13 +1859,80 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#dijkstra" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Dijkstra正确性
+        最短路
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="最短路">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dijkstra" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dijkstra
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bellman-fordspfa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bellman-Ford和SPFA
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        生成树
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="生成树">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prim" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prim
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kruskal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        kruskal
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1766,12 +1956,15 @@
   
 
 
-<h1 id="_1">最短路和生成树的一些思考<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<h2 id="dijkstra">Dijkstra正确性<a class="headerlink" href="#dijkstra" title="Permanent link">&para;</a></h2>
-<ul>
-<li>每一种路径对应的</li>
-<li>若某次di</li>
-</ul>
+<h1 id="_1">最短路和生成树算法的证明<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h2 id="_2">最短路<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>两种算法都可以用最短路径树来证明</p>
+<h3 id="dijkstra">Dijkstra<a class="headerlink" href="#dijkstra" title="Permanent link">&para;</a></h3>
+<h3 id="bellman-fordspfa">Bellman-Ford和SPFA<a class="headerlink" href="#bellman-fordspfa" title="Permanent link">&para;</a></h3>
+<h2 id="_3">生成树<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>均可以使用环证明</p>
+<h3 id="prim">Prim<a class="headerlink" href="#prim" title="Permanent link">&para;</a></h3>
+<h3 id="kruskal">kruskal<a class="headerlink" href="#kruskal" title="Permanent link">&para;</a></h3>
 
 
 
