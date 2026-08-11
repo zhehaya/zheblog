@@ -118,3 +118,107 @@ memset(t,val,sizeof(t));
 
 !!!note
     注意：`int`数组只能初始化为`-1`或`0`，`char`数组则可以任意（有关字节存储问题）
+
+## SAM
+
+注：并未完全完善
+
+```cpp
+namespace SAM{
+    void text();
+    int last=0;//原串所在节点
+    int cnt=0;//目前开创节点
+    struct node
+    {
+        int son[26];
+        int father=-1;//link树上的
+        int num;
+        int len;
+    }sam[N<<1];
+    void newnode(int length,int number){//建立新节点满足
+        //cnt++;
+        sam[++cnt].len=length;
+        sam[cnt].father=-1;//先设父节点未知（建完后只有根节点0父节点未知）
+        sam[cnt].num=number;
+        memset(sam[cnt].son,0,sizeof(sam[cnt].son));
+    }
+    void insert(int c){//输入单字符（按字母表转化为数字）
+        newnode(sam[last].len+1,1);//建立新endpos
+        int now=cnt,p=last;//现在的节点编号和正在跳father的节点编号
+        //cout<<now<<" "<<p<<endl;
+        while(!sam[p].son[c]&&p!=-1)//跳father直到有这个儿子或者到头(越过0节点的头)
+        {
+            //cout<<p<<endl;
+            sam[p].son[c]=now;
+            p=sam[p].father;
+        }
+        if(p==-1) 
+            sam[now].father=0;//cout<<"ee"<<endl;//父亲为根
+        else{
+            int sonnode=sam[p].son[c];//待拆点/处理的点
+            if(sam[sonnode].len==sam[p].len+1) sam[now].father=sonnode;//不用拆点
+            else{//拆点
+                //cout<<"ee";
+                newnode(sam[p].len+1,0);
+                int newson=cnt;
+                sam[newson].father=sam[sonnode].father;
+                sam[sonnode].father=newson;//父亲关系
+                memcpy(sam[newson].son,sam[sonnode].son,sizeof(sam[sonnode].son));//儿子关系
+                //前面的儿子关系
+                while(p!=-1&&sam[p].son[c]==sonnode)
+                {
+                    sam[p].son[c]=newson;//变更关系
+                    p=sam[p].father;
+                }
+                sonnode=newson;//便于后边统计数量
+                sam[now].father=newson;
+            }
+            //cout<<sonnode<<endl;
+        }
+        last=now;
+    }
+    int query(string s)//查询字符串s次数
+    {
+        int now=0,flag=1;
+        for(int i=0;i<s.length();i++){
+            int id=s[i]-'a';
+            if(!sam[now].son[id]) {flag=0;break;}
+            now=sam[now].son[id];
+        }
+        if(flag) return sam[now].num;
+        else return 0;
+    }
+    void add(string t){//往后插入t
+        for(char i:t)
+        {
+            insert(i-'a');
+            //cout<<sam[cnt].len-sam<<endl;
+            //text();
+        }
+            
+    }
+    long long total()//找子串个数
+    {
+        long long res=0;
+        for(int i=1;i<=cnt;i++)
+        { if(sam[i].num!=1)
+            res=max(res,1ll*sam[i].num*sam[i].len);
+        }return res;
+    }
+    void text(){//输出SAM
+        cout<<"-----------------------------------------------"<<endl;
+        for(int i=1;i<=cnt;i++)
+        {
+            cout<<i<<":father-"<<sam[i].father<<endl;
+            cout<<"len:"<<sam[i].len<<" num:"<<sam[i].num<<endl;
+            cout<<"son:";
+            for(int j=0;j<=25;j++){
+                if(sam[i].son[j]) cout<<j<<"-"<<sam[i].son[j]<<" ";
+            }
+            cout<<endl<<endl;
+        }
+        cout<<"-----------------------------------------------"<<endl;
+    }
+}
+```
+
