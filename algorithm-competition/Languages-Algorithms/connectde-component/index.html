@@ -8,31 +8,31 @@
       
       
       
-        <link rel="canonical" href="https://zhehaya.cloud/OI%E7%AC%94%E8%AE%B0/10.14%E6%A8%A1%E6%8B%9F%E8%B5%9B%E6%80%BB%E7%BB%93/">
+        <link rel="canonical" href="https://zhehaya.cloud/algorithm-competition/Languages-Algorithms/connectde-component/">
       
       
-        <link rel="prev" href="../">
+        <link rel="prev" href="../catalan-ideas/">
       
       
-        <link rel="next" href="../2.22%E6%80%BB%E7%BB%93%26%E5%8F%8D%E6%80%9D/">
+        <link rel="next" href="../flow/">
       
       
         
       
       
-      <link rel="icon" href="../../image/头像.svg">
+      <link rel="icon" href="../../../image/头像.svg">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
-        <title>10.14模拟赛总结 - zhehaya blog</title>
+        <title>连通性相关内容 - zhehaya blog</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -51,11 +51,11 @@
       
     
     
-      <link rel="stylesheet" href="../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
     
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -79,6 +79,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -89,9 +94,9 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href="../.." title="zhehaya blog" class="md-header__button md-logo" aria-label="zhehaya blog" data-md-component="logo">
+    <a href="../../.." title="zhehaya blog" class="md-header__button md-logo" aria-label="zhehaya blog" data-md-component="logo">
       
-  <img src="../../image/头像.svg" alt="logo">
+  <img src="../../../image/头像.svg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -108,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              10.14模拟赛总结
+              连通性相关内容
             
           </span>
         </div>
@@ -205,7 +210,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../.." class="md-tabs__link">
+      <a href="../../.." class="md-tabs__link">
         
   
   
@@ -222,13 +227,11 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../../OI%E7%AC%94%E8%AE%B0/" class="md-tabs__link">
           
   
   
@@ -244,11 +247,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../algorithm-competition/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../" class="md-tabs__link">
           
   
   
@@ -282,9 +287,9 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="zhehaya blog" class="md-nav__button md-logo" aria-label="zhehaya blog" data-md-component="logo">
+    <a href="../../.." title="zhehaya blog" class="md-nav__button md-logo" aria-label="zhehaya blog" data-md-component="logo">
       
-  <img src="../../image/头像.svg" alt="logo">
+  <img src="../../../image/头像.svg" alt="logo">
 
     </a>
     zhehaya blog
@@ -311,7 +316,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         
   
   
@@ -335,31 +340,26 @@
       
   
   
-    
   
   
-  
     
     
     
     
-      
-        
-        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
         
           
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
             
   
   
@@ -377,7 +377,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -395,7 +395,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../" class="md-nav__link">
+      <a href="../../../OI%E7%AC%94%E8%AE%B0/" class="md-nav__link">
         
   
   
@@ -420,17 +420,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../../OI%E7%AC%94%E8%AE%B0/10.14%E6%A8%A1%E6%8B%9F%E8%B5%9B%E6%80%BB%E7%BB%93/" class="md-nav__link">
         
   
   
@@ -446,7 +439,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -459,7 +451,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../2.22%E6%80%BB%E7%BB%93%26%E5%8F%8D%E6%80%9D/" class="md-nav__link">
+      <a href="../../../OI%E7%AC%94%E8%AE%B0/2.22%E6%80%BB%E7%BB%93%26%E5%8F%8D%E6%80%9D/" class="md-nav__link">
         
   
   
@@ -487,7 +479,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../2.23%E6%80%BB%E7%BB%93%26%E5%8F%8D%E6%80%9D/" class="md-nav__link">
+      <a href="../../../OI%E7%AC%94%E8%AE%B0/2.23%E6%80%BB%E7%BB%93%26%E5%8F%8D%E6%80%9D/" class="md-nav__link">
         
   
   
@@ -515,7 +507,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../2.24%E6%80%BB%E7%BB%93%26%E5%8F%8D%E6%80%9D%28%E9%99%84%E5%8A%A0%E4%B9%8B%E5%90%8E%E8%AE%A1%E5%88%92/" class="md-nav__link">
+      <a href="../../../OI%E7%AC%94%E8%AE%B0/2.24%E6%80%BB%E7%BB%93%26%E5%8F%8D%E6%80%9D%28%E9%99%84%E5%8A%A0%E4%B9%8B%E5%90%8E%E8%AE%A1%E5%88%92/" class="md-nav__link">
         
   
   
@@ -543,7 +535,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../8.6%E6%A8%A1%E6%8B%9F%E8%B5%9B%E6%80%BB%E7%BB%93/" class="md-nav__link">
+      <a href="../../../OI%E7%AC%94%E8%AE%B0/8.6%E6%A8%A1%E6%8B%9F%E8%B5%9B%E6%80%BB%E7%BB%93/" class="md-nav__link">
         
   
   
@@ -571,7 +563,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../8.8%E8%B6%A3%E9%A2%98%E6%9D%82%E9%A2%98%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="md-nav__link">
+      <a href="../../../OI%E7%AC%94%E8%AE%B0/8.8%E8%B6%A3%E9%A2%98%E6%9D%82%E9%A2%98%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="md-nav__link">
         
   
   
@@ -599,7 +591,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../NOI%202016%20%E5%BE%AA%E7%8E%AF%E4%B9%8B%E7%BE%8E/" class="md-nav__link">
+      <a href="../../../OI%E7%AC%94%E8%AE%B0/NOI%202016%20%E5%BE%AA%E7%8E%AF%E4%B9%8B%E7%BE%8E/" class="md-nav__link">
         
   
   
@@ -627,7 +619,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../P10977%E7%AC%94%E8%AE%B0/" class="md-nav__link">
+      <a href="../../../OI%E7%AC%94%E8%AE%B0/P10977%E7%AC%94%E8%AE%B0/" class="md-nav__link">
         
   
   
@@ -655,7 +647,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../P7831%E8%AE%B0%E5%BD%95/" class="md-nav__link">
+      <a href="../../../OI%E7%AC%94%E8%AE%B0/P7831%E8%AE%B0%E5%BD%95/" class="md-nav__link">
         
   
   
@@ -683,7 +675,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../%5BAGC019F%5D%20Yes%20or%20No/" class="md-nav__link">
+      <a href="../../../OI%E7%AC%94%E8%AE%B0/%5BAGC019F%5D%20Yes%20or%20No/" class="md-nav__link">
         
   
   
@@ -711,7 +703,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../csps%E5%88%9D%E8%B5%9B/" class="md-nav__link">
+      <a href="../../../OI%E7%AC%94%E8%AE%B0/csps%E5%88%9D%E8%B5%9B/" class="md-nav__link">
         
   
   
@@ -739,7 +731,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../trick%E8%AE%B0%E5%BD%95/" class="md-nav__link">
+      <a href="../../../OI%E7%AC%94%E8%AE%B0/trick%E8%AE%B0%E5%BD%95/" class="md-nav__link">
         
   
   
@@ -767,7 +759,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../%E5%8D%9A%E5%BC%88%E8%AE%BA%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="md-nav__link">
+      <a href="../../../OI%E7%AC%94%E8%AE%B0/%E5%8D%9A%E5%BC%88%E8%AE%BA%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="md-nav__link">
         
   
   
@@ -795,7 +787,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../%E5%8F%8D%E6%80%9D10.15/" class="md-nav__link">
+      <a href="../../../OI%E7%AC%94%E8%AE%B0/%E5%8F%8D%E6%80%9D10.15/" class="md-nav__link">
         
   
   
@@ -823,7 +815,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../%E5%9B%BD%E5%BA%86day1%E8%A1%A5%E9%A2%98/" class="md-nav__link">
+      <a href="../../../OI%E7%AC%94%E8%AE%B0/%E5%9B%BD%E5%BA%86day1%E8%A1%A5%E9%A2%98/" class="md-nav__link">
         
   
   
@@ -851,7 +843,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../%E5%A4%B1%E6%84%8F/" class="md-nav__link">
+      <a href="../../../OI%E7%AC%94%E8%AE%B0/%E5%A4%B1%E6%84%8F/" class="md-nav__link">
         
   
   
@@ -879,7 +871,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../%E5%AE%B9%E6%96%A5%E5%92%8C%E5%8F%8D%E6%BC%94/" class="md-nav__link">
+      <a href="../../../OI%E7%AC%94%E8%AE%B0/%E5%AE%B9%E6%96%A5%E5%92%8C%E5%8F%8D%E6%BC%94/" class="md-nav__link">
         
   
   
@@ -907,7 +899,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../%E6%9C%9F%E6%9C%9B%E4%B8%8E%E6%A6%82%E7%8E%87%E8%AE%B0%E5%BD%95/" class="md-nav__link">
+      <a href="../../../OI%E7%AC%94%E8%AE%B0/%E6%9C%9F%E6%9C%9B%E4%B8%8E%E6%A6%82%E7%8E%87%E8%AE%B0%E5%BD%95/" class="md-nav__link">
         
   
   
@@ -935,7 +927,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../%E6%9E%84%E9%80%A0%E9%A2%98%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="md-nav__link">
+      <a href="../../../OI%E7%AC%94%E8%AE%B0/%E6%9E%84%E9%80%A0%E9%A2%98%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="md-nav__link">
         
   
   
@@ -963,7 +955,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../%E7%9C%81%E9%80%89%E5%A4%87%E8%80%83%E8%AE%B0%E5%BD%95/" class="md-nav__link">
+      <a href="../../../OI%E7%AC%94%E8%AE%B0/%E7%9C%81%E9%80%89%E5%A4%87%E8%80%83%E8%AE%B0%E5%BD%95/" class="md-nav__link">
         
   
   
@@ -991,7 +983,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6/" class="md-nav__link">
+      <a href="../../../OI%E7%AC%94%E8%AE%B0/%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6/" class="md-nav__link">
         
   
   
@@ -1019,7 +1011,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../%E7%BD%91%E7%BB%9C%E6%B5%81%E6%9D%82%E7%AC%94%E8%AE%B0/" class="md-nav__link">
+      <a href="../../../OI%E7%AC%94%E8%AE%B0/%E7%BD%91%E7%BB%9C%E6%B5%81%E6%9D%82%E7%AC%94%E8%AE%B0/" class="md-nav__link">
         
   
   
@@ -1047,7 +1039,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../%E8%AF%A5%E6%B3%A8%E6%84%8F%E7%9A%84%E5%9F%BA%E7%A1%80/" class="md-nav__link">
+      <a href="../../../OI%E7%AC%94%E8%AE%B0/%E8%AF%A5%E6%B3%A8%E6%84%8F%E7%9A%84%E5%9F%BA%E7%A1%80/" class="md-nav__link">
         
   
   
@@ -1075,7 +1067,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../%E9%A2%98%E7%9B%AE/" class="md-nav__link">
+      <a href="../../../OI%E7%AC%94%E8%AE%B0/%E9%A2%98%E7%9B%AE/" class="md-nav__link">
         
   
   
@@ -1103,7 +1095,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../%E9%A2%98%E7%9B%AE%E8%AE%B0%E5%BD%95%EF%BC%88%E5%B7%B2%E5%AE%8C%E7%BB%93/" class="md-nav__link">
+      <a href="../../../OI%E7%AC%94%E8%AE%B0/%E9%A2%98%E7%9B%AE%E8%AE%B0%E5%BD%95%EF%BC%88%E5%B7%B2%E5%AE%8C%E7%BB%93/" class="md-nav__link">
         
   
   
@@ -1135,26 +1127,31 @@
       
   
   
+    
   
   
+  
     
     
     
     
+      
+        
+        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
             
   
   
@@ -1172,7 +1169,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1190,7 +1187,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../algorithm-competition/" class="md-nav__link">
+      <a href="../../" class="md-nav__link">
         
   
   
@@ -1218,7 +1215,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../algorithm-competition/misc/" class="md-nav__link">
+      <a href="../../misc/" class="md-nav__link">
         
   
   
@@ -1246,7 +1243,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../algorithm-competition/template/" class="md-nav__link">
+      <a href="../../template/" class="md-nav__link">
         
   
   
@@ -1271,26 +1268,31 @@
                 
   
   
+    
   
   
+  
     
     
     
     
       
       
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
         
           
-          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="">
             
   
   
@@ -1308,7 +1310,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3_4">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1326,7 +1328,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../algorithm-competition/Languages-Algorithms/catalan-ideas/" class="md-nav__link">
+      <a href="../catalan-ideas/" class="md-nav__link">
         
   
   
@@ -1351,10 +1353,19 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../algorithm-competition/Languages-Algorithms/connectde-component/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1370,6 +1381,7 @@
   
 
       </a>
+      
     </li>
   
 
@@ -1382,7 +1394,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../algorithm-competition/Languages-Algorithms/flow/" class="md-nav__link">
+      <a href="../flow/" class="md-nav__link">
         
   
   
@@ -1410,7 +1422,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../algorithm-competition/Languages-Algorithms/inversion-properties/" class="md-nav__link">
+      <a href="../inversion-properties/" class="md-nav__link">
         
   
   
@@ -1438,7 +1450,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../algorithm-competition/Languages-Algorithms/linear-basis/" class="md-nav__link">
+      <a href="../linear-basis/" class="md-nav__link">
         
   
   
@@ -1466,7 +1478,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../algorithm-competition/Languages-Algorithms/shortest-paths-spanning-trees/" class="md-nav__link">
+      <a href="../shortest-paths-spanning-trees/" class="md-nav__link">
         
   
   
@@ -1494,7 +1506,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../algorithm-competition/Languages-Algorithms/string/" class="md-nav__link">
+      <a href="../string/" class="md-nav__link">
         
   
   
@@ -1522,7 +1534,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../algorithm-competition/Languages-Algorithms/%E7%A4%BA%E4%BE%8B/" class="md-nav__link">
+      <a href="../%E7%A4%BA%E4%BE%8B/" class="md-nav__link">
         
   
   
@@ -1550,7 +1562,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../algorithm-competition/Languages-Algorithms/%E9%87%8D%E8%BD%BD%E8%BF%90%E7%AE%97%E7%AC%A6/" class="md-nav__link">
+      <a href="../%E9%87%8D%E8%BD%BD%E8%BF%90%E7%AE%97%E7%AC%A6/" class="md-nav__link">
         
   
   
@@ -1592,17 +1604,20 @@
       
       
         
+          
+          
+        
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" >
         
           
-          <label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="">
             
   
   
@@ -1638,7 +1653,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../algorithm-competition/problem/CF2244D/" class="md-nav__link">
+      <a href="../../problem/CF2244D/" class="md-nav__link">
         
   
   
@@ -1666,7 +1681,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../algorithm-competition/problem/P1950/" class="md-nav__link">
+      <a href="../../problem/P1950/" class="md-nav__link">
         
   
   
@@ -1694,7 +1709,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../algorithm-competition/problem/P4653/" class="md-nav__link">
+      <a href="../../problem/P4653/" class="md-nav__link">
         
   
   
@@ -1747,6 +1762,8 @@
   
   
   
+    
+  
   
 </nav>
                   </div>
@@ -1766,9 +1783,7 @@
   
 
 
-  <h1>10.14模拟赛总结</h1>
-
-<p>T4的欧拉序做法搞明白了，大概意思就是先把问题转化为看这个路径上出现奇数次的边是否刚好是路径长度种颜色，接着进行欧拉序，注意这个欧拉序是进入的时候入序一次，结束的时候再入序一次，然后就是这个有个性质，就是在两点x，y间路径的点就是这个里面x的最后一个到y的第一个或者y的最后一个到x的第一个(看哪个是正着向后的到)，在这个区间里出现奇数次的数再加上LCA就是这个路径上的所有数，利用这个我们不妨对欧拉序上的每个点存下通往它父亲的那一条边，然后当查询x，y时就是统计(x,y)这个区间里的所有出现奇数次的数再加上x，y的影响出现奇数次颜色的种类数（注意不用加上LCA带来的边辣！注意是闭区间里的（下面会说要考虑x,y)!)，这时不妨采用对这个区间的所有颜色异或，首先那些出现偶数次的边会被异或掉，剩下的就会只是在路径上的，然后路径上出现偶数次颜色的也会被异或掉，就只剩下奇数次了，注意这个我们考虑x，y的影响时注意lca(x,y)=x或lca(x,y)=y的情况下只用加上其中一个的影响。</p>
+<h1 id="_1">连通性相关内容<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 
 
 
@@ -1818,10 +1833,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.sections"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
