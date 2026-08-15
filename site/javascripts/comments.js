@@ -144,7 +144,7 @@ async function loadComments() {
             `${SUPABASE_URL}/rest/v1/${COMMENTS_TABLE}` +
             `?post_id=eq.${encodeURIComponent(postId)}` +
             `&select=*` +
-            `&order=created_at.asc`;
+            `&order=created_at.desc`;
 
         const response = await fetch(url, {
             headers: {
