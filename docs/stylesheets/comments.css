@@ -38,11 +38,25 @@
     resize: vertical;
 }
 
-#comment-submit {
+.comment-form-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+}
+
+#comment-submit,
+.comment-cancel-reply,
+.comment-reply-btn,
+.comment-toggle {
+    cursor: pointer;
+}
+
+#comment-submit,
+.comment-cancel-reply {
     padding: 0.6rem 1rem;
     border: none;
     border-radius: 0.3rem;
-    cursor: pointer;
     background: var(--md-primary-fg-color);
     color: var(--md-primary-bg-color);
 }
@@ -52,38 +66,36 @@
     cursor: not-allowed;
 }
 
+.comment-cancel-reply {
+    background: transparent;
+    color: var(--md-default-fg-color--light);
+    border: 1px solid var(--md-default-fg-color--lightest);
+}
+
 .comment-message {
     margin-top: 0.7rem;
     font-size: 0.9rem;
 }
 
-.comment {
-    padding: 1rem 0;
-    border-bottom: 1px solid var(--md-default-fg-color--lightest);
+.comment-reply-preview {
+    margin-bottom: 1rem;
+    padding: 0.5rem 0.75rem;
+    border-left: 3px solid var(--md-primary-fg-color);
+    background: rgba(127, 154, 255, 0.08);
+    color: var(--md-default-fg-color);
+    border-radius: 0.2rem;
 }
 
-.comment-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 1rem;
-    margin-bottom: 0.5rem;
+#comment-list {
+    display: block;
 }
 
-.comment-header time {
-    font-size: 0.8rem;
-    opacity: 0.6;
+.comment-node {
+    margin-left: calc(var(--depth, 0) * 1.3rem);
+    border-left: 2px solid rgba(127, 140, 180, 0.28);
+    padding-left: 0.9rem;
 }
 
-.comment-content {
-    white-space: pre-wrap;
-    overflow-wrap: anywhere;
-    line-height: 1.7;
-}
-
-.no-comments {
-    opacity: 0.6;
-}
 .comment {
     display: flex;
     gap: 1rem;
@@ -116,8 +128,45 @@
     opacity: 0.6;
 }
 
+.comment-reply-tag {
+    display: inline-block;
+    margin-bottom: 0.5rem;
+    padding: 0.2rem 0.5rem;
+    background: rgba(127, 154, 255, 0.12);
+    border-radius: 999px;
+    font-size: 0.75rem;
+    color: var(--md-primary-fg-color);
+}
+
 .comment-content {
     white-space: pre-wrap;
     overflow-wrap: anywhere;
     line-height: 1.7;
+}
+
+.comment-actions {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 0.7rem;
+}
+
+.comment-reply-btn,
+.comment-toggle {
+    padding: 0;
+    border: none;
+    background: transparent;
+    color: var(--md-primary-fg-color);
+    font-size: 0.85rem;
+}
+
+.comment-children {
+    margin-top: 0.25rem;
+}
+
+.comment-children.is-collapsed {
+    display: none;
+}
+
+.no-comments {
+    opacity: 0.6;
 }
