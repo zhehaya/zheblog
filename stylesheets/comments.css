@@ -1,0 +1,123 @@
+#comments {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--md-default-fg-color--lightest);
+}
+
+#comments h2 {
+    margin-bottom: 1.5rem;
+}
+
+#comment-form {
+    margin-bottom: 2rem;
+}
+
+.comment-field {
+    margin-bottom: 1rem;
+}
+
+.comment-field label {
+    display: block;
+    margin-bottom: 0.4rem;
+    font-weight: 600;
+}
+
+.comment-field input,
+.comment-field textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0.7rem;
+    border: 1px solid var(--md-default-fg-color--lightest);
+    border-radius: 0.3rem;
+    background: var(--md-default-bg-color);
+    color: var(--md-default-fg-color);
+    font: inherit;
+}
+
+.comment-field textarea {
+    resize: vertical;
+}
+
+#comment-submit {
+    padding: 0.6rem 1rem;
+    border: none;
+    border-radius: 0.3rem;
+    cursor: pointer;
+    background: var(--md-primary-fg-color);
+    color: var(--md-primary-bg-color);
+}
+
+#comment-submit:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.comment-message {
+    margin-top: 0.7rem;
+    font-size: 0.9rem;
+}
+
+.comment {
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--md-default-fg-color--lightest);
+}
+
+.comment-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.comment-header time {
+    font-size: 0.8rem;
+    opacity: 0.6;
+}
+
+.comment-content {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    line-height: 1.7;
+}
+
+.no-comments {
+    opacity: 0.6;
+}
+.comment {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--md-default-fg-color--lightest);
+}
+
+.comment-avatar {
+    width: 44px;
+    height: 44px;
+    flex: 0 0 44px;
+    border-radius: 50%;
+}
+
+.comment-body {
+    min-width: 0;
+    flex: 1;
+}
+
+.comment-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.comment-header time {
+    font-size: 0.8rem;
+    opacity: 0.6;
+}
+
+.comment-content {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    line-height: 1.7;
+}
