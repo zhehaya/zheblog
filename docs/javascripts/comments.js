@@ -4,6 +4,7 @@ const SUPABASE_KEY = "sb_publishable_1ff6CulmdnW-u5ts1drgVQ_T1Ht-lAj";
 const COMMENTS_TABLE = "comments";
 
 let currentComments = [];
+let currentCommentTree = [];
 
 /**
  * 获取当前文章 ID
@@ -88,7 +89,7 @@ function bindReplyActions() {
     document.querySelectorAll(".comment-toggle").forEach((button) => {
         button.addEventListener("click", () => {
             const commentId = String(button.dataset.id);
-            const target = findCommentById(currentComments, commentId);
+            const target = findCommentById(currentCommentTree, commentId);
 
             if (!target) {
                 return;
@@ -121,13 +122,24 @@ function buildCommentTree(comments) {
     const map = new Map();
     const roots = [];
 
+    const previousState = new Map();
+    currentCommentTree.forEach((node) => {
+        const walk = (n) => {
+            previousState.set(String(n.id), n.collapsed);
+            if (n.children && n.children.length > 0) {
+                n.children.forEach(walk);
+            }
+        };
+        walk(node);
+    });
+
     comments.forEach((comment) => {
         const key = String(comment.id);
         map.set(key, {
             ...comment,
             id: key,
             children: [],
-            collapsed: Boolean(comment.collapsed)
+            collapsed: previousState.has(key) ? previousState.get(key) : true
         });
     });
 
@@ -228,8 +240,8 @@ function renderComments(comments) {
         return;
     }
 
-    const tree = buildCommentTree(currentComments);
-    list.innerHTML = tree.map((node) => renderCommentNode(node)).join("");
+    currentCommentTree = buildCommentTree(currentComments);
+    list.innerHTML = currentCommentTree.map((node) => renderCommentNode(node)).join("");
     bindReplyActions();
 }
 
