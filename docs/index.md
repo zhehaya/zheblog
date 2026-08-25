@@ -53,7 +53,7 @@ hide:
 </div>
 
 <div class="mobile-avatar">
-  <img src="https://bee-reg-ab.imagency.cn/p/cacdec1495a83ced9798efcdd6807473.jpg"
+  <img src="image/头像.png"
        alt="头像"
        loading="lazy">
 </div>
