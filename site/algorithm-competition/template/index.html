@@ -16,7 +16,7 @@
         <link rel="prev" href="../misc/">
       
       
-        <link rel="next" href="../Languages-Algorithms/catalan-ideas/">
+        <link rel="next" href="../Languages-Algorithms/Hall/">
       
       
         
@@ -1389,6 +1389,28 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#ac" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AC自动机
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        逆元
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1452,6 +1474,34 @@
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Languages-Algorithms/Hall/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    霍尔定理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
             
               
                 
@@ -1775,6 +1825,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../problem/2026ICPConline1A/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2026ICPConline1A
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../problem/CF2244D/" class="md-nav__link">
         
   
@@ -1970,6 +2048,28 @@
     <span class="md-ellipsis">
       
         SAM
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ac" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AC自动机
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        逆元
       
     </span>
   </a>
@@ -2194,6 +2294,132 @@
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
+<h2 id="ac">AC自动机<a class="headerlink" href="#ac" title="Permanent link">&para;</a></h2>
+<p>给你一个文本串 <span class="arithmatex">\(S\)</span> 和 <span class="arithmatex">\(n\)</span> 个模式串 <span class="arithmatex">\(T_{1 \sim n}\)</span>，请你分别求出每个模式串 <span class="arithmatex">\(T_i\)</span> 在 <span class="arithmatex">\(S\)</span> 中出现的次数。</p>
+<p>第一行包含一个正整数 <span class="arithmatex">\(n\)</span> 表示模式串的个数。</p>
+<p>接下来 <span class="arithmatex">\(n\)</span> 行，第 <span class="arithmatex">\(i\)</span> 行包含一个由小写英文字母构成的非空字符串 <span class="arithmatex">\(T_i\)</span>。</p>
+<p>最后一行包含一个由小写英文字母构成的非空字符串 <span class="arithmatex">\(S\)</span>。</p>
+<p><strong>数据不保证任意两个模式串不相同</strong>。</p>
+<p>输出包含 <span class="arithmatex">\(n\)</span> 行，其中第 <span class="arithmatex">\(i\)</span> 行包含一个非负整数表示 <span class="arithmatex">\(T_i\)</span> 在 <span class="arithmatex">\(S\)</span> 中出现的次数。</p>
+<p>对于 <span class="arithmatex">\(100 \%\)</span> 的数据，<span class="arithmatex">\(1 \le n \le 2 \times {10}^5\)</span>，<span class="arithmatex">\(T_{1 \sim n}\)</span> 的长度总和不超过 <span class="arithmatex">\(2 \times {10}^5\)</span>，<span class="arithmatex">\(S\)</span> 的长度不超过 <span class="arithmatex">\(2 \times {10}^6\)</span>。</p>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="cpf">&lt;bits/stdc++.h&gt;</span>
+<span class="cp">#define N 1145141</span>
+<span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span>
+<span class="k">namespace</span><span class="w"> </span><span class="nn">AC</span><span class="p">{</span><span class="c1">//对应P5357即求各串出现次数的统计</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">cnt</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="c1">//动态开点</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">total</span><span class="p">[</span><span class="n">N</span><span class="p">];</span><span class="c1">//对于串出现次数的统计</span>
+<span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">node</span><span class="p">{</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">ch</span><span class="p">[</span><span class="mi">26</span><span class="p">];</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">fail</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+<span class="w">        </span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="n">end</span><span class="p">;</span><span class="c1">//注意可能有重复的字符串</span>
+<span class="w">    </span><span class="p">}</span><span class="n">actree</span><span class="p">[</span><span class="n">N</span><span class="p">];</span><span class="c1">//ac自动机本体</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">inq</span><span class="p">[</span><span class="n">N</span><span class="p">];</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">newnode</span><span class="p">(){</span>
+<span class="w">        </span><span class="n">actree</span><span class="p">[</span><span class="o">++</span><span class="n">cnt</span><span class="p">].</span><span class="n">fail</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+<span class="w">        </span><span class="n">actree</span><span class="p">[</span><span class="n">cnt</span><span class="p">].</span><span class="n">end</span><span class="p">.</span><span class="n">clear</span><span class="p">();</span>
+<span class="w">        </span><span class="n">inq</span><span class="p">[</span><span class="n">cnt</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+<span class="w">        </span><span class="n">memset</span><span class="p">(</span><span class="n">actree</span><span class="p">[</span><span class="n">cnt</span><span class="p">].</span><span class="n">ch</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="k">sizeof</span><span class="p">(</span><span class="n">actree</span><span class="p">[</span><span class="n">cnt</span><span class="p">].</span><span class="n">ch</span><span class="p">));</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">insert</span><span class="p">(</span><span class="n">string</span><span class="w"> </span><span class="n">s</span><span class="p">,</span><span class="kt">int</span><span class="w"> </span><span class="n">id</span><span class="p">)</span><span class="c1">//加入一个字符串</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">now</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+<span class="w">        </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">s</span><span class="p">.</span><span class="n">length</span><span class="p">();</span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="kt">int</span><span class="w"> </span><span class="n">id</span><span class="o">=</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-</span><span class="sc">&#39;a&#39;</span><span class="p">;</span>
+<span class="w">            </span><span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">actree</span><span class="p">[</span><span class="n">now</span><span class="p">].</span><span class="n">ch</span><span class="p">[</span><span class="n">id</span><span class="p">])</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">newnode</span><span class="p">();</span>
+<span class="w">                </span><span class="n">actree</span><span class="p">[</span><span class="n">now</span><span class="p">].</span><span class="n">ch</span><span class="p">[</span><span class="n">id</span><span class="p">]</span><span class="o">=</span><span class="n">cnt</span><span class="p">;</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">            </span><span class="n">now</span><span class="o">=</span><span class="n">actree</span><span class="p">[</span><span class="n">now</span><span class="p">].</span><span class="n">ch</span><span class="p">[</span><span class="n">id</span><span class="p">];</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="n">actree</span><span class="p">[</span><span class="n">now</span><span class="p">].</span><span class="n">end</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">id</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">bfs_fail</span><span class="p">()</span><span class="c1">//bfs求fail指针</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">queue</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="n">BFS</span><span class="p">;</span>
+<span class="w">        </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="mi">26</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="n">actree</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">ch</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="w"> </span><span class="n">BFS</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">actree</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">ch</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+<span class="w">        </span><span class="k">while</span><span class="p">(</span><span class="o">!</span><span class="n">BFS</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="kt">int</span><span class="w"> </span><span class="n">now</span><span class="o">=</span><span class="n">BFS</span><span class="p">.</span><span class="n">front</span><span class="p">();</span>
+<span class="w">            </span><span class="c1">//cout&lt;&lt;now;</span>
+<span class="w">            </span><span class="n">BFS</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
+<span class="w">            </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="mi">26</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="k">if</span><span class="p">(</span><span class="n">actree</span><span class="p">[</span><span class="n">now</span><span class="p">].</span><span class="n">ch</span><span class="p">[</span><span class="n">i</span><span class="p">]){</span><span class="c1">//有了话fail为父亲的fail后继并且入队</span>
+<span class="w">                    </span><span class="n">actree</span><span class="p">[</span><span class="n">actree</span><span class="p">[</span><span class="n">now</span><span class="p">].</span><span class="n">ch</span><span class="p">[</span><span class="n">i</span><span class="p">]].</span><span class="n">fail</span><span class="o">=</span><span class="n">actree</span><span class="p">[</span><span class="n">actree</span><span class="p">[</span><span class="n">now</span><span class="p">].</span><span class="n">fail</span><span class="p">].</span><span class="n">ch</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+<span class="w">                    </span><span class="n">inq</span><span class="p">[</span><span class="n">actree</span><span class="p">[</span><span class="n">actree</span><span class="p">[</span><span class="n">now</span><span class="p">].</span><span class="n">fail</span><span class="p">].</span><span class="n">ch</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span><span class="o">++</span><span class="p">;</span>
+<span class="w">                    </span><span class="n">BFS</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">actree</span><span class="p">[</span><span class="n">now</span><span class="p">].</span><span class="n">ch</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">                </span><span class="k">else</span><span class="p">{</span><span class="c1">//无了话儿子就是父亲的fail后继</span>
+<span class="w">                   </span><span class="n">actree</span><span class="p">[</span><span class="n">now</span><span class="p">].</span><span class="n">ch</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="n">actree</span><span class="p">[</span><span class="n">actree</span><span class="p">[</span><span class="n">now</span><span class="p">].</span><span class="n">fail</span><span class="p">].</span><span class="n">ch</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="nf">query</span><span class="p">(</span><span class="n">string</span><span class="w"> </span><span class="n">s</span><span class="p">){</span><span class="c1">//询问有多少种字串出现</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">res</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">now</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+<span class="w">        </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">s</span><span class="p">.</span><span class="n">length</span><span class="p">();</span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="kt">int</span><span class="w"> </span><span class="n">id</span><span class="o">=</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-</span><span class="sc">&#39;a&#39;</span><span class="p">;</span>
+<span class="w">            </span><span class="n">now</span><span class="o">=</span><span class="n">actree</span><span class="p">[</span><span class="n">now</span><span class="p">].</span><span class="n">ch</span><span class="p">[</span><span class="n">id</span><span class="p">];</span>
+<span class="w">            </span><span class="n">actree</span><span class="p">[</span><span class="n">now</span><span class="p">].</span><span class="n">num</span><span class="o">++</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">res</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">init</span><span class="p">()</span><span class="c1">//初始化AC自动机</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">cnt</span><span class="o">=</span><span class="mi">-1</span><span class="p">;</span>
+<span class="w">        </span><span class="n">newnode</span><span class="p">();</span>
+<span class="w">        </span><span class="n">cnt</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">topo</span><span class="p">(){</span><span class="c1">//拓扑排序求total</span>
+<span class="w">        </span><span class="n">queue</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="n">BFS</span><span class="p">;</span>
+<span class="w">        </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;=</span><span class="n">cnt</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="k">if</span><span class="p">(</span><span class="n">inq</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">==</span><span class="mi">0</span><span class="p">){</span>
+<span class="w">                </span><span class="n">BFS</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">while</span><span class="p">(</span><span class="o">!</span><span class="n">BFS</span><span class="p">.</span><span class="n">empty</span><span class="p">()){</span>
+<span class="w">            </span><span class="kt">int</span><span class="w"> </span><span class="n">now</span><span class="o">=</span><span class="n">BFS</span><span class="p">.</span><span class="n">front</span><span class="p">();</span><span class="n">BFS</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
+<span class="w">            </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">id</span><span class="o">:</span><span class="n">actree</span><span class="p">[</span><span class="n">now</span><span class="p">].</span><span class="n">end</span><span class="p">)</span><span class="w"> </span><span class="n">total</span><span class="p">[</span><span class="n">id</span><span class="p">]</span><span class="o">+=</span><span class="n">actree</span><span class="p">[</span><span class="n">now</span><span class="p">].</span><span class="n">num</span><span class="p">;</span>
+<span class="w">            </span><span class="kt">int</span><span class="w"> </span><span class="n">nxt</span><span class="o">=</span><span class="n">actree</span><span class="p">[</span><span class="n">now</span><span class="p">].</span><span class="n">fail</span><span class="p">;</span>
+<span class="w">            </span><span class="k">if</span><span class="p">(</span><span class="n">nxt</span><span class="o">!=</span><span class="mi">0</span><span class="p">){</span>
+<span class="w">                </span><span class="n">actree</span><span class="p">[</span><span class="n">nxt</span><span class="p">].</span><span class="n">num</span><span class="o">+=</span><span class="n">actree</span><span class="p">[</span><span class="n">now</span><span class="p">].</span><span class="n">num</span><span class="p">;</span>
+<span class="w">                </span><span class="n">inq</span><span class="p">[</span><span class="n">nxt</span><span class="p">]</span><span class="o">--</span><span class="p">;</span>
+<span class="w">                </span><span class="k">if</span><span class="p">(</span><span class="n">inq</span><span class="p">[</span><span class="n">nxt</span><span class="p">]</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="n">BFS</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">nxt</span><span class="p">);</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="p">}</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">;</span>
+<span class="n">string</span><span class="w"> </span><span class="n">s</span><span class="p">[</span><span class="mi">214514</span><span class="p">],</span><span class="n">t</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="n">AC</span><span class="o">::</span><span class="n">init</span><span class="p">();</span>
+<span class="n">cin</span><span class="o">&gt;&gt;</span><span class="n">n</span><span class="p">;</span>
+<span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;=</span><span class="n">n</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+<span class="w">    </span><span class="n">cin</span><span class="o">&gt;&gt;</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+<span class="w">    </span><span class="n">AC</span><span class="o">::</span><span class="n">insert</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">i</span><span class="p">);</span><span class="n">t</span><span class="o">+=</span><span class="sc">&#39;&amp;&#39;</span><span class="p">;</span>
+<span class="w">    </span><span class="n">t</span><span class="o">+=</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+<span class="n">AC</span><span class="o">::</span><span class="n">total</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+<span class="c1">//cout&lt;&lt;&quot;kk&quot;;</span>
+<span class="p">}</span>
+<span class="n">AC</span><span class="o">::</span><span class="n">bfs_fail</span><span class="p">();</span>
+<span class="n">AC</span><span class="o">::</span><span class="n">query</span><span class="p">(</span><span class="n">t</span><span class="p">);</span>
+<span class="n">AC</span><span class="o">::</span><span class="n">topo</span><span class="p">();</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">maxid</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+<span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;=</span><span class="n">n</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+<span class="w">    </span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">AC</span><span class="o">::</span><span class="n">total</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="_5">逆元<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<p>当<span class="arithmatex">\(p\)</span>为素数时，<img src="C:\Users\huang\AppData\Roaming\Typora\typora-user-images\image-20260918205148835.png" alt="image-20260918205148835" style="zoom: 33%;" /></p>
 
 
 
