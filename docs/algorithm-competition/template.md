@@ -222,3 +222,140 @@ namespace SAM{
 }
 ```
 
+## AC自动机
+
+给你一个文本串 $S$ 和 $n$ 个模式串 $T_{1 \sim n}$，请你分别求出每个模式串 $T_i$ 在 $S$ 中出现的次数。
+
+第一行包含一个正整数 $n$ 表示模式串的个数。
+
+接下来 $n$ 行，第 $i$ 行包含一个由小写英文字母构成的非空字符串 $T_i$。
+
+最后一行包含一个由小写英文字母构成的非空字符串 $S$。
+
+**数据不保证任意两个模式串不相同**。
+
+输出包含 $n$ 行，其中第 $i$ 行包含一个非负整数表示 $T_i$ 在 $S$ 中出现的次数。
+
+对于 $100 \%$ 的数据，$1 \le n \le 2 \times {10}^5$，$T_{1 \sim n}$ 的长度总和不超过 $2 \times {10}^5$，$S$ 的长度不超过 $2 \times {10}^6$。
+
+```cpp
+#include<bits/stdc++.h>
+#define N 1145141
+using namespace std;
+namespace AC{//对应P5357即求各串出现次数的统计
+    int cnt=0;//动态开点
+    int total[N];//对于串出现次数的统计
+    struct node{
+        int ch[26];
+        int fail=0;
+        int num=0;
+        vector<int>end;//注意可能有重复的字符串
+    }actree[N];//ac自动机本体
+    int inq[N];
+    void newnode(){
+        actree[++cnt].fail=0;
+        actree[cnt].end.clear();
+        inq[cnt]=0;
+        memset(actree[cnt].ch,0,sizeof(actree[cnt].ch));
+    }
+    void insert(string s,int id)//加入一个字符串
+    {
+        int now=0;
+        for(int i=0;i<s.length();i++)
+        {
+            int id=s[i]-'a';
+            if(!actree[now].ch[id]) {
+                newnode();
+                actree[now].ch[id]=cnt;
+            }
+            now=actree[now].ch[id];
+        }
+        actree[now].end.push_back(id);
+    }
+    void bfs_fail()//bfs求fail指针
+    {
+        queue<int>BFS;
+        for(int i=0;i<26;i++) if(actree[0].ch[i]) BFS.push(actree[0].ch[i]);
+        while(!BFS.empty())
+        {
+            int now=BFS.front();
+            //cout<<now;
+            BFS.pop();
+            for(int i=0;i<26;i++)
+            {
+                if(actree[now].ch[i]){//有了话fail为父亲的fail后继并且入队
+                    actree[actree[now].ch[i]].fail=actree[actree[now].fail].ch[i];
+                    inq[actree[actree[now].fail].ch[i]]++;
+                    BFS.push(actree[now].ch[i]);
+                }
+                else{//无了话儿子就是父亲的fail后继
+                   actree[now].ch[i]=actree[actree[now].fail].ch[i];
+                }
+            }
+        }
+    }
+    int query(string s){//询问有多少种字串出现
+        int res=0;
+        int now=0;
+        for(int i=0;i<s.length();i++)
+        {
+            int id=s[i]-'a';
+            now=actree[now].ch[id];
+            actree[now].num++;
+        }
+        return res;
+    }
+    void init()//初始化AC自动机
+    {
+        cnt=-1;
+        newnode();
+        cnt=0;
+    }
+    void topo(){//拓扑排序求total
+        queue<int>BFS;
+        for(int i=1;i<=cnt;i++)
+        {
+            if(inq[i]==0){
+                BFS.push(i);
+            }
+        }
+        while(!BFS.empty()){
+            int now=BFS.front();BFS.pop();
+            for(int id:actree[now].end) total[id]+=actree[now].num;
+            int nxt=actree[now].fail;
+            if(nxt!=0){
+                actree[nxt].num+=actree[now].num;
+                inq[nxt]--;
+                if(inq[nxt]==0) BFS.push(nxt);
+            }
+        }
+    }
+
+}
+int n;
+string s[214514],t="";
+int main()
+{
+AC::init();
+cin>>n;
+for(int i=1;i<=n;i++){
+    cin>>s[i];
+    AC::insert(s[i],i);t+='&';
+    t+=s[i];
+AC::total[i]=0;
+//cout<<"kk";
+}
+AC::bfs_fail();
+AC::query(t);
+AC::topo();
+int maxid=0;
+for(int i=1;i<=n;i++){
+    cout<<AC::total[i]<<endl;
+}
+
+}
+```
+
+## 逆元
+
+当$p$为素数时，<img src="C:\Users\huang\AppData\Roaming\Typora\typora-user-images\image-20260918205148835.png" alt="image-20260918205148835" style="zoom: 33%;" />
